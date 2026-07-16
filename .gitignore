@@ -1,0 +1,16 @@
+.git/
+scratch/
+staging/
+tmp/
+temp/
+__pycache__/
+.pytest_cache/
+node_modules/
+.agents/git-manual-sync-logs/
+*.log
+*.tmp
+*.temp
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

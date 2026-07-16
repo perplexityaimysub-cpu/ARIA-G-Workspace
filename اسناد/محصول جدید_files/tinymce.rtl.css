@@ -1,0 +1,183 @@
+
+
+@font-face {
+    font-family: Font1;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 100;
+    src: url('/src/global/fonts/estedad/estedad-thin.woff2') format('woff2'), url('/src/global/fonts/estedad/estedad-thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Font1;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 200;
+    src: url('/src/global/fonts/estedad/estedad-extralight.woff2') format('woff2'), url('/src/global/fonts/estedad/estedad-extralight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Font1;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 300;
+    src: url('/src/global/fonts/estedad/estedad-light.woff2') format('woff2'),  url('/src/global/fonts/estedad/estedad-light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Font1;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+    src: url('/src/global/fonts/estedad/estedad-regular.woff2') format('woff2'),  url('/src/global/fonts/estedad/estedad-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Font1;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 500;
+    src: url('/src/global/fonts/estedad/estedad-medium.woff2') format('woff2'),  url('/src/global/fonts/estedad/estedad-medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Font1;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 600;
+    src:  url('/src/global/fonts/estedad/estedad-semibold.woff2') format('woff2'), url('/src/global/fonts/estedad/estedad-semibold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Font1;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 700;
+    src:  url('/src/global/fonts/estedad/estedad-bold.woff2') format('woff2'), url('/src/global/fonts/estedad/estedad-bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Font1;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 800;
+    src: url('/src/global/fonts/estedad/estedad-extrabold.woff2') format('woff2'), url('/src/global/fonts/estedad/estedad-extrabold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Font1;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 900;
+    src: url('/src/global/fonts/estedad/estedad-black.woff2') format('woff2'), url('/src/global/fonts/estedad/estedad-black.ttf') format('truetype');
+}
+
+
+body {
+
+	/* font-family: tahoma,Verdana,Arial,Helvetica,sans-serif;
+	font-size: 13px; */
+
+
+	font: normal 16px/32px Font1, Arial;
+
+
+direction:rtl;
+text-align:right;
+padding:10px;
+	}
+
+td,th {
+	font-family: Font1,tahoma,Arial,Helvetica,sans-serif;
+	font-size: 13px
+}
+/*
+.mce-container,.mce-container *,.mce-widget,.mce-widget *,.mce-reset {
+
+	font-family: tahoma,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 13px;
+
+}*/
+.center{
+	text-align:center;
+	
+}
+
+
+
+h1, .h1 {
+	font: bold 1.5em/2em Font1, Arial;
+	// margin: 30px 0 10px 0;
+}
+
+h2, .h2 {
+	font: bold 1.2em/3em Font1, Arial;
+	// margin: 30px 0 10px 0;
+}
+h3, .h3 {
+	font: bold 1.1em/2.5em Font1, Arial;
+	// margin: 20px 0 10px 0;
+}
+h4, .h4 {
+	font: bold 1em/2em Font1, Arial;
+	// margin: 15px 0 10px 0;
+}
+ul{
+	margin: -10px 0 25px 0;
+	padding: 0;
+	padding-right:35px;
+	list-style-type: disc!important;
+	list-style: inherit;
+}
+ol {
+	list-style: inherit;
+	margin: -10px 0 25px;
+	padding: 0;
+	padding-right:35px;
+	li {
+		list-style-type: decimal;
+	}
+}
+
+li{
+	list-style-type: disc;
+	margin-right: 30px;
+}
+p{
+	font: normal 1em/2em Font1, Arial;
+	margin: 0 0 1.1em;
+	padding: 0;
+	text-align: justify;
+	&.center{
+		text-align: center !important;
+	}
+	video, img{
+		max-width:100%;
+	}
+}
+video,img{
+	max-width:100%;
+}
+
+a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+
+
+.mce-insertwidget {
+    border: 1px dashed #aaa;
+    cursor: default;
+    display: block;
+    background-image:url('data:image/gif;base64,R0lGODlhJAAJAIAAAP///5mZmSH5BAAAAAAALAAAAAAkAAkAAAI0hI+py3EeIpCIRnhd0tNo+FRb033eyXlUt4AmC8IjyZk1OrewtKrqzQgKh4rLY2X8HWuUAgA7') ;
+    height: 9px;
+    margin-top: 15px;
+    page-break-before: always;
+    width: 100%;
+  }
+  @media print {
+    .mce-insertwidget {
+      border: 0;
+    }
+  }

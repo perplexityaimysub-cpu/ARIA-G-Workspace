@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت محتوای برند سی کلاس (کریتورز کلاس) (Creators Class (C.Class)) - زنگ اول</title>
+    <!-- Vazirmatn Persian Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --toast-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to left, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--accent-blue);
+        }
+
+        .meta-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .meta-table tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .meta-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .meta-table td {
+            padding: 1rem 0.5rem;
+            vertical-align: middle;
+        }
+
+        .meta-label {
+            font-weight: 700;
+            width: 20%;
+            color: var(--text-primary);
+        }
+
+        .meta-value {
+            width: 65%;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .meta-value code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: monospace;
+            font-size: 0.9rem;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .btn-copy {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-copy:hover {
+            background: var(--accent-blue);
+            color: white;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-label {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .code-container {
+            position: relative;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+            max-height: 250px;
+        }
+
+        .code-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.9rem;
+            color: #38bdf8;
+        }
+
+        .preview-container {
+            background: #ffffff;
+            color: #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .preview-container h2 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .preview-container h3 {
+            font-size: 1.2rem;
+            color: #334155;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .preview-container h4 {
+            font-size: 1.05rem;
+            color: #475569;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        .preview-container p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .preview-container ul {
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .preview-container li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--toast-bg);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            opacity: 0;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .badge {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .logo-guideline {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            display: block;
+            border-right: 2px solid var(--accent-orange);
+            padding-right: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1 id="brand-title">برند سی کلاس (کریتورز کلاس) (Creators Class (C.Class))</h1>
+            <p>خروجی فیلدها و کدهای HTML معتبر و راستی‌آزمایی‌شده جهت درج در پنل شاپفا (نسخه نهایی هماهنگ با دیتابیس رسمی)</p>
+        </header>
+
+        <div class="grid">
+            <!-- Metadata Card -->
+            <div class="card" id="metadata-card">
+                <div class="card-title">
+                    <span>فیلدهای شناسنامه برند</span>
+                    <span class="badge">تأییدشده و مستند</span>
+                </div>
+                <table class="meta-table">
+                    <tr>
+                        <td class="meta-label">نام برند (فارسی)</td>
+                        <td class="meta-value" id="val-name">سی کلاس (کریتورز کلاس)</td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-name')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">عنوان انگلیسی برند</td>
+                        <td class="meta-value" id="val-eng">Creators Class (C.Class)</td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-eng')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">عنوان در لینک (Slug)</td>
+                        <td class="meta-value"><code id="val-slug">c-class</code></td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-slug')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">تصویر لوگو</td>
+                        <td class="meta-value">
+                            <span class="logo-guideline">لوگوی رسمی Creators Class یا C.Class با فرمت PNG بدون پس‌زمینه (شفاف) و ابعاد حداقل ۲۵۰×۲۵۰ بارگذاری شود.</span>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">عنوان صفحه (Title)</td>
+                        <td class="meta-value" id="val-meta-title">خرید نوشت افزار کریتورز کلاس (سی کلاس) | قیمت محصولات Creators Class</td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-meta-title')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">توضیحات (Meta Desc)</td>
+                        <td class="meta-value" id="val-meta-desc">خرید آنلاین انواع نوشت‌افزار مدرن کریتورز کلاس (سی‌کلاس) شامل روان‌نویس ژلی کاندید و مورنو، خودکار مخملی سافت تاچ و اتود چیرمن با ضمانت اصالت کالا در زنگ اول.</td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-meta-desc')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">ایندکس صفحه</td>
+                        <td class="meta-value"><span class="badge" style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--accent-green)">Index</span></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Top Text Card -->
+            <div class="card" id="top-desc-card">
+                <div class="card-title">
+                    <span>متن بالای صفحه (Optional HTML Output)</span>
+                    <button class="btn-copy" onclick="copyCode('code-top')">
+                        کپی کل کد HTML
+                    </button>
+                </div>
+                
+                <div class="section-header">
+                    <span class="section-label">کد HTML خروجی:</span>
+                </div>
+                <div class="code-container">
+                    <pre id="code-top">&lt;p&gt;لذت خلق کردن و نگارش بی‌دغدغه را با نوشت‌افزارهای مدرن کریتورز کلاس (سی کلاس - Creators Class) تجربه کنید! اگر به دنبال ابزاری هستید که پا‌به‌پای افکار خلاقانه و دقیق شما حرکت کند، کریتورز کلاس با طراحی‌های مینیمال، بدنه‌های لطیف ضدتعریق و مهندسی روز آلمان، بهترین همراه برای دست‌های پرانرژی شماست. از خودکارهای نرم مخملی تا اتودهای تمام‌اتوماتیک مهندسی، زنگ اول اصالت و کیفیت این برند خوش‌نام ایرانی را برای شما تضمین می‌کند. ✍️✨&lt;/p&gt;</pre>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-label">پیش‌نمایش بصری در سایت:</span>
+                </div>
+                <div class="preview-container">
+                    <p>لذت خلق کردن و نگارش بی‌دغدغه را با نوشت‌افزارهای مدرن کریتورز کلاس (سی کلاس - Creators Class) تجربه کنید! اگر به دنبال ابزاری هستید که پا‌به‌پای افکار خلاقانه و دقیق شما حرکت کند، کریتورز کلاس با طراحی‌های مینیمال، بدنه‌های لطیف ضدتعریق و مهندسی روز آلمان، بهترین همراه برای دست‌های پرانرژی شماست. از خودکارهای نرم مخملی تا اتودهای تمام‌اتوماتیک مهندسی، زنگ اول اصالت و کیفیت این برند خوش‌نام ایرانی را برای شما تضمین می‌کند. ✍️✨</p>
+                </div>
+            </div>
+
+            <!-- Bottom Text Card -->
+            <div class="card" id="bottom-desc-card">
+                <div class="card-title">
+                    <span>متن پایین صفحه (Optional HTML Output)</span>
+                    <button class="btn-copy" onclick="copyCode('code-bottom')">
+                        کپی کل کد HTML
+                    </button>
+                </div>
+                
+                <div class="section-header">
+                    <span class="section-label">کد HTML خروجی:</span>
+                </div>
+                <div class="code-container">
+                    <pre id="code-bottom">&lt;h2&gt;داستان خلاقیت و نوآوری با نوشت‌افزار مدرن کریتورز کلاس (سی کلاس)&lt;/h2&gt;
+&lt;p&gt;برند محبوب سی کلاس (C.Class) که امروزه با هدف ارائه محصولات مدرن، مینیمال و دوستدار محیط زیست دست به ریبرندینگ زده و با نام تجاری کریتورز کلاس (Creators Class) شناخته می‌شود، یکی از موفق‌ترین زیرمجموعه‌های هلدینگ صنعتی و بازرگانی «بنیان تحریر» است. شرکت بنیان تحریر فعالیت خود را از سال ۱۳۶۸ آغاز کرد و در سال ۱۳۷۹ به طور رسمی به ثبت رسید. خطوط تولید پیشرفته این برند از سال ۱۳۸۳ با نام تجاری سی کلاس راه‌اندازی شد. این برند که ابتدا با لاک غلط‌گیرهای قلمی باکیفیت خود در دل دانش‌آموزان و دانشجویان جا باز کرد، از سال ۱۳۹۰ فرآیند بومی‌سازی تولیدات خود را توسعه داد. امروزه کریتورز کلاس با دفتر مرکزی جدید خود در برج صبای قیطریه و تیمی بالغ بر ۲۰۰ تا ۵۰۰ متخصص، تمامی محصولات خود را تحت لیسانس مستقیم گروه پژوهشی شپر (Schepper Group) آلمان تولید و عرضه می‌کند تا کیفیتی در تراز جهانی را به خانه‌های ایرانی بیاورد.&lt;/p&gt;
+
+&lt;h3&gt;کاتالوگ محصولات کریتورز کلاس (سی کلاس) در زنگ اول&lt;/h3&gt;
+&lt;p&gt;سبد محصولات خلاقانه این برند در سه دسته‌بندی اصلی طراحی شده است:&lt;/p&gt;
+
+&lt;h4&gt;۱. ابزارهای نوشتاری و روان‌نویس‌های ژلی&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;روان‌نویس ژلی کاندید (Candid):&lt;/strong&gt; با نوک ظریف ۰.۵ میلی‌متری و بدنه شیشه‌ای مینیمال، این روان‌نویس به شما امکان کنترل دائم سطح جوهر را می‌دهد. فناوری خشک‌شدن سریع (Rapid Set) جوهر کاندید، مانع از پخش شدن آن روی کاغذ و کثیف شدن دستان شما می‌شود.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;روان‌نویس ژلی مورنو (Moreno):&lt;/strong&gt; مجهز به نوک ۰.۷ میلی‌متری و بدنه بسیار نرم با روکش پلیمری ضدتعریق که خستگی دست را در نگارش‌های طولانی‌مدت به حداقل می‌رساند.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;خودکار سافت تاچ (Soft Touch):&lt;/strong&gt; با نوک ۰.۷ میلی‌متری و بدنه مخملی فوق‌العاده نرم که حس بی‌نظیری از کنترل قلم را بدون لغزش انگشتان به شما هدیه می‌دهد.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;خودکار ایزی آفیس (Easy Office - 110):&lt;/strong&gt; دارای نوک ۱.۰ میلی‌متری و بدنه چندوجهی با جوهر فوق‌العاده روان و کم‌غلظت (ULV)؛ گزینه‌ای عالی و اقتصادی برای کارهای اداری روزمره.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;خودکار تریپل (Triple):&lt;/strong&gt; خودکار ارگونومیک سه‌وجهی با وزن ناچیز ۶ گرم که تنش عضلانی دست و ساعد را هنگام یادداشت‌برداری‌های سریع دانشجویی برطرف می‌کند.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;خودکارهای فانتزی سلفی (Selfie):&lt;/strong&gt; خودکار ژل روان ۰.۵ میلی‌متری در رنگ‌های شاد و طرح‌های جذاب بدنه که انگیزه‌ای مضاعف برای دانش‌آموزان است.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;۲. ابزارهای تصحیح و لاک غلط‌گیر&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;غلط‌گیرهای مایع قلمی (مدل‌های AR1291 و AR1412):&lt;/strong&gt; با حجم ۱۲ میلی‌لیتر و نوک فلزی سوپاپی دقیق جهت جلوگیری از نشت ناخواسته مایع. فرمولاسیون این غلط‌گیرها کاملاً سازگار با محیط زیست و فاقد ترکیبات مخرب لایه اوزون (CFC Free) است.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;غلط‌گیر نواری پلومیت (Plumate 5061):&lt;/strong&gt; مجهز به نوک چرخشی ۳۶۰ درجه برای اصلاح آسان در تمامی زوایا با پوشش‌دهی خشک و تمیز.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;غلط‌گیر نواری اتودی بلومی (Bloomy):&lt;/strong&gt; با طراحی خلاقانه به سبک مداد نوکی و قابلیت شارژ مجدد نوار، انتخابی اقتصادی و دوست‌داشتنی برای جامدادی شما.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;۳. مدادهای مکانیکی و ابزارهای ترسیم هندسی&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;مداد مکانیکی چیرمن (Chairman):&lt;/strong&gt; یک اتود تمام‌اتوماتیک شگفت‌انگیز! مکانیزم هوشمند این قلم، مغزی گرافیتی را هم‌زمان با سایش نوک و بدون نیاز به فشردن دکمه بالایی خارج می‌کند.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;اتودهای دسین (Dessin) و اکسپرت (Expert):&lt;/strong&gt; مدل دسین مجهز به سیستم لرزش‌گیر داخلی جهت جلوگیری از شکستن مغزی است و سری اکسپرت انتخابی تخصصی و چندوجهی برای کارهای مهندسی است.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;پرگار Creators Class CCTMC7 (Turtle):&lt;/strong&gt; با بدنه آلیاژی سنگین و قفل مرکزی چرخ‌دنده جهت کشیدن دقیق‌ترین دایره‌ها بدون تغییر شعاع.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;چرا خرید محصولات کریتورز کلاس یک انتخاب هوشمندانه است؟&lt;/h3&gt;
+&lt;p&gt;تمام نوشت‌افزارهای کریتورز کلاس کاملاً عاری از ترکیبات سمی و مواد سرطان‌زای بیسفنول آ (BPA Free) هستند. همچنین چسب‌های ماتیکی آن با پایه‌ای ایمن و غیرمضر فرموله شده‌اند. توجه داشته باشید که به دلیل فرآیند انتقال نام برند از سی کلاس به کریتورز کلاس، در موتورهای جستجو از هر دو عنوان استفاده می‌شود (SEO Dualism) تا شما راحت‌تر کالای خود را بیابند. همچنین به دلیل سیستم توزیع کارخانه‌ای، در برخی مدل‌ها مانند اتودها، انتخاب دقیق رنگ بدنه امکان‌پذیر نبوده و ارسال به صورت رنگ‌بندی تصادفی انجام می‌شود. شما می‌توانید کاتالوگ اورجینال این برند را با تضمین اصالت و بهترین قیمت از فروشگاه زنگ اول تهیه فرمایید.&lt;/p&gt;</pre>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-label">پیش‌نمایش بصری در سایت:</span>
+                </div>
+                <div class="preview-container" id="bottom-preview-container">
+                    <!-- محتوا توسط JavaScript بارگذاری می‌شود -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">با موفقیت کپی شد!</div>
+
+    <script>
+        // Inject bottom HTML preview safely via JS to avoid template escaping bugs
+        (function() {
+            var bottomHtml = "<h2>داستان خلاقیت و نوآوری با نوشت‌افزار مدرن کریتورز کلاس (سی کلاس)</h2>\n<p>برند محبوب سی کلاس (C.Class) که امروزه با هدف ارائه محصولات مدرن، مینیمال و دوستدار محیط زیست دست به ریبرندینگ زده و با نام تجاری کریتورز کلاس (Creators Class) شناخته می‌شود، یکی از موفق‌ترین زیرمجموعه‌های هلدینگ صنعتی و بازرگانی «بنیان تحریر» است. شرکت بنیان تحریر فعالیت خود را از سال ۱۳۶۸ آغاز کرد و در سال ۱۳۷۹ به طور رسمی به ثبت رسید. خطوط تولید پیشرفته این برند از سال ۱۳۸۳ با نام تجاری سی کلاس راه‌اندازی شد. این برند که ابتدا با لاک غلط‌گیرهای قلمی باکیفیت خود در دل دانش‌آموزان و دانشجویان جا باز کرد، از سال ۱۳۹۰ فرآیند بومی‌سازی تولیدات خود را توسعه داد. امروزه کریتورز کلاس با دفتر مرکزی جدید خود در برج صبای قیطریه و تیمی بالغ بر ۲۰۰ تا ۵۰۰ متخصص، تمامی محصولات خود را تحت لیسانس مستقیم گروه پژوهشی شپر (Schepper Group) آلمان تولید و عرضه می‌کند تا کیفیتی در تراز جهانی را به خانه‌های ایرانی بیاورد.</p>\n\n<h3>کاتالوگ محصولات کریتورز کلاس (سی کلاس) در زنگ اول</h3>\n<p>سبد محصولات خلاقانه این برند در سه دسته‌بندی اصلی طراحی شده است:</p>\n\n<h4>۱. ابزارهای نوشتاری و روان‌نویس‌های ژلی</h4>\n<ul>\n<li><strong>روان‌نویس ژلی کاندید (Candid):</strong> با نوک ظریف ۰.۵ میلی‌متری و بدنه شیشه‌ای مینیمال، این روان‌نویس به شما امکان کنترل دائم سطح جوهر را می‌دهد. فناوری خشک‌شدن سریع (Rapid Set) جوهر کاندید، مانع از پخش شدن آن روی کاغذ و کثیف شدن دستان شما می‌شود.</li>\n<li><strong>روان‌نویس ژلی مورنو (Moreno):</strong> مجهز به نوک ۰.۷ میلی‌متری و بدنه بسیار نرم با روکش پلیمری ضدتعریق که خستگی دست را در نگارش‌های طولانی‌مدت به حداقل می‌رساند.</li>\n<li><strong>خودکار سافت تاچ (Soft Touch):</strong> با نوک ۰.۷ میلی‌متری و بدنه مخملی فوق‌العاده نرم که حس بی‌نظیری از کنترل قلم را بدون لغزش انگشتان به شما هدیه می‌دهد.</li>\n<li><strong>خودکار ایزی آفیس (Easy Office - 110):</strong> دارای نوک ۱.۰ میلی‌متری و بدنه چندوجهی با جوهر فوق‌العاده روان و کم‌غلظت (ULV)؛ گزینه‌ای عالی و اقتصادی برای کارهای اداری روزمره.</li>\n<li><strong>خودکار تریپل (Triple):</strong> خودکار ارگونومیک سه‌وجهی با وزن ناچیز ۶ گرم که تنش عضلانی دست و ساعد را هنگام یادداشت‌برداری‌های سریع دانشجویی برطرف می‌کند.</li>\n<li><strong>خودکارهای فانتزی سلفی (Selfie):</strong> خودکار ژل روان ۰.۵ میلی‌متری در رنگ‌های شاد و طرح‌های جذاب بدنه که انگیزه‌ای مضاعف برای دانش‌آموزان است.</li>\n</ul>\n\n<h4>۲. ابزارهای تصحیح و لاک غلط‌گیر</h4>\n<ul>\n<li><strong>غلط‌گیرهای مایع قلمی (مدل‌های AR1291 و AR1412):</strong> با حجم ۱۲ میلی‌لیتر و نوک فلزی سوپاپی دقیق جهت جلوگیری از نشت ناخواسته مایع. فرمولاسیون این غلط‌گیرها کاملاً سازگار با محیط زیست و فاقد ترکیبات مخرب لایه اوزون (CFC Free) است.</li>\n<li><strong>غلط‌گیر نواری پلومیت (Plumate 5061):</strong> مجهز به نوک چرخشی ۳۶۰ درجه برای اصلاح آسان در تمامی زوایا با پوشش‌دهی خشک و تمیز.</li>\n<li><strong>غلط‌گیر نواری اتودی بلومی (Bloomy):</strong> با طراحی خلاقانه به سبک مداد نوکی و قابلیت شارژ مجدد نوار، انتخابی اقتصادی و دوست‌داشتنی برای جامدادی شما.</li>\n</ul>\n\n<h4>۳. مدادهای مکانیکی و ابزارهای ترسیم هندسی</h4>\n<ul>\n<li><strong>مداد مکانیکی چیرمن (Chairman):</strong> یک اتود تمام‌اتوماتیک شگفت‌انگیز! مکانیزم هوشمند این قلم، مغزی گرافیتی را هم‌زمان با سایش نوک و بدون نیاز به فشردن دکمه بالایی خارج می‌کند.</li>\n<li><strong>اتودهای دسین (Dessin) و اکسپرت (Expert):</strong> مدل دسین مجهز به سیستم لرزش‌گیر داخلی جهت جلوگیری از شکستن مغزی است و سری اکسپرت انتخابی تخصصی و چندوجهی برای کارهای مهندسی است.</li>\n<li><strong>پرگار Creators Class CCTMC7 (Turtle):</strong> با بدنه آلیاژی سنگین و قفل مرکزی چرخ‌دنده جهت کشیدن دقیق‌ترین دایره‌ها بدون تغییر شعاع.</li>\n</ul>\n\n<h3>چرا خرید محصولات کریتورز کلاس یک انتخاب هوشمندانه است؟</h3>\n<p>تمام نوشت‌افزارهای کریتورز کلاس کاملاً عاری از ترکیبات سمی و مواد سرطان‌زای بیسفنول آ (BPA Free) هستند. همچنین چسب‌های ماتیکی آن با پایه‌ای ایمن و غیرمضر فرموله شده‌اند. توجه داشته باشید که به دلیل فرآیند انتقال نام برند از سی کلاس به کریتورز کلاس، در موتورهای جستجو از هر دو عنوان استفاده می‌شود (SEO Dualism) تا شما راحت‌تر کالای خود را بیابند. همچنین به دلیل سیستم توزیع کارخانه‌ای، در برخی مدل‌ها مانند اتودها، انتخاب دقیق رنگ بدنه امکان‌پذیر نبوده و ارسال به صورت رنگ‌بندی تصادفی انجام می‌شود. شما می‌توانید کاتالوگ اورجینال این برند را با تضمین اصالت و بهترین قیمت از فروشگاه زنگ اول تهیه فرمایید.</p>";
+            var container = document.getElementById('bottom-preview-container');
+            if (container) {
+                container.innerHTML = bottomHtml;
+            }
+        })();
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

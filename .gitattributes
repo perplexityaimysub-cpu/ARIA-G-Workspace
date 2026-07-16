@@ -1,0 +1,10 @@
+*.md text=auto
+*.txt text=auto
+*.json text=auto
+*.jsonl text=auto
+*.yml text=auto
+*.yaml text=auto
+*.ps1 text=auto
+*.py text=auto
+*.html text=auto
+SKILL.md text=auto

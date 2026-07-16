@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تست رندر پیشرفته و کپی کد HTML — زنگ اول</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: rgba(30,41,59,0.8);
+            --border: rgba(255,255,255,0.08);
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --blue: #3b82f6;
+            --green: #10b981;
+            --orange: #f59e0b;
+            --red: #ef4444;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
+        body {
+            background: var(--bg);
+            background-image:
+                radial-gradient(at 0% 0%, rgba(59,130,246,0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16,185,129,0.07) 0px, transparent 50%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.7;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        header h1 {
+            font-size: 1.9rem;
+            font-weight: 900;
+            background: linear-gradient(to left, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        header p { color: var(--muted); font-size: 1rem; }
+
+        .method-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .method-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--border);
+        }
+        .title-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .method-num {
+            background: var(--blue);
+            color: white;
+            border-radius: 50%;
+            width: 2rem; height: 2rem;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .method-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--blue);
+        }
+        .label {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .label-orange { background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); color: var(--orange); }
+        .label-green { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: var(--green); }
+        .label-red { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); color: var(--red); }
+        .label-blue { background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3); color: var(--blue); }
+
+        .btn-copy {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--green);
+            padding: 0.6rem 1.4rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-copy:hover {
+            background: var(--green);
+            color: white;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+        }
+
+        .section-label {
+            display: block;
+            font-weight: 700;
+            color: var(--text);
+            margin: 1rem 0 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .code-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+            max-height: 250px;
+        }
+        .code-box pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.85rem;
+            color: #38bdf8;
+        }
+
+        /* Preview box that mimics a live web page */
+        .preview-box {
+            background: #ffffff;
+            color: #334155;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            direction: rtl;
+            text-align: right;
+            line-height: 1.8;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--card);
+            border: 1px solid var(--green);
+            color: var(--green);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            opacity: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>🧪 پلتفرم تست رندر پیشرفته و کپی سورس‌کد HTML</h1>
+        <p>مجموعه‌ای از ساختارهای کدنویسی غنی، جداول مقایسه‌ای زیبا و باکس‌های راهنما (Callouts) مجهز به <strong>استایل‌های درون‌خطی (Inline CSS)</strong> تایید شده جهت تست نهایی در شاپفا.</p>
+    </header>
+
+    <!-- روش ۱: روش کپی با استفاده از innerText (نسخه فوق‌العاده پیشرفته با جدول، باکس هشدار، لیست‌های تودرتو و استایل درون‌خطی) -->
+    <div class="method-card">
+        <div class="method-title">
+            <div class="title-left">
+                <div class="method-num">★</div>
+                <div class="method-name">نسخه نهایی و پیشرفته — مجهز به استایل‌های درون‌خطی (شاپفا سازگار)</div>
+            </div>
+            <button class="btn-copy" onclick="copyCodeFixed('code-advanced')">📋 کپی کد پیشرفته و کامل</button>
+        </div>
+        
+        <span class="section-label">سورس کد برای کپی (حاوی کدهای استایل‌دهی شده و بدون تغییر بعد از کپی):</span>
+        <div class="code-box">
+            <pre id="code-advanced">&lt;h2 style="font-size: 1.55rem; color: #1e3a8a; border-bottom: 3px solid #3b82f6; padding-bottom: 0.6rem; margin-top: 1.5rem; margin-bottom: 1.2rem; font-weight: 800;"&gt;راهنمای خرید و بررسی تخصصی نوشت‌افزار ارگونومیک&lt;/h2&gt;
+
+&lt;p style="font-size: 1rem; line-height: 1.8; color: #475569; text-align: justify; margin-bottom: 1.2rem;"&gt;نوشتن روزمره نباید خسته‌کننده یا آسیب‌رسان باشد. نوشت‌افزارهای ارگونومیک با تکیه بر ساختار بدنه سه‌وجهی و توزیع مناسب وزن، به خستگی عضلات ساعد پایان می‌دهند. این مجموعه محصول تلفیقی از مهندسی روز آلمان و کیفیت تایید شده بهداشتی است.&lt;/p&gt;
+
+&lt;!-- باکس راهنما و هشدار بسیار شیک --&gt;
+&lt;div style="background-color: #f0fdf4; border-right: 5px solid #16a34a; padding: 1.2rem; border-radius: 8px; margin: 1.5rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); direction: rtl;"&gt;
+    &lt;strong style="color: #14532d; font-size: 1.05rem; display: block; margin-bottom: 0.4rem;"&gt;🛡️ استاندارد ایمنی و سلامت کودکان&lt;/strong&gt;
+    &lt;p style="color: #166534; font-size: 0.95rem; margin: 0; line-height: 1.6;"&gt;تمامی محصولات این برند دارای نشان معتبر سیب سلامت و عاری از مواد سمی (CFC Free &amp;amp; BPA Free) هستند تا سلامت فرزندان شما حین یادگیری کاملاً تضمین شود.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 style="font-size: 1.25rem; color: #1e293b; font-weight: 700; margin: 1.8rem 0 0.8rem;"&gt;جدول مقایسه فنی و کاتالوگ مدل‌ها&lt;/h3&gt;
+
+&lt;table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; text-align: right; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border-radius: 8px; overflow: hidden;"&gt;
+    &lt;thead&gt;
+        &lt;tr style="background-color: #1e3a8a; color: #ffffff;"&gt;
+            &lt;th style="padding: 0.8rem 1.2rem; font-weight: 700; border: 1px solid #d1d5db;"&gt;مدل محصول&lt;/th&gt;
+            &lt;th style="padding: 0.8rem 1.2rem; font-weight: 700; border: 1px solid #d1d5db;"&gt;قطر نوک&lt;/th&gt;
+            &lt;th style="padding: 0.8rem 1.2rem; font-weight: 700; border: 1px solid #d1d5db;"&gt;نوع جوهر&lt;/th&gt;
+            &lt;th style="padding: 0.8rem 1.2rem; font-weight: 700; border: 1px solid #d1d5db;"&gt;شاخص بهداشتی&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr style="background-color: #ffffff;"&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #1e293b; font-weight: bold;"&gt;مدل دکتر پنتر (Dr. Panter)&lt;/td&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;"&gt;۰.۷ میلی‌متر&lt;/td&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;"&gt;Ultra Glide Ink (روان)&lt;/td&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #16a34a;"&gt;نانو آنتی‌باکتریال 🦠&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="background-color: #f8fafc;"&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #1e293b; font-weight: bold;"&gt;کاندید ژلی (Candid Gel)&lt;/td&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;"&gt;۰.۵ میلی‌متر&lt;/td&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;"&gt;ژلی سریع‌خشک (Rapid Set)&lt;/td&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #f59e0b;"&gt;بدون آلاینده (BPA Free)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="background-color: #ffffff;"&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #1e293b; font-weight: bold;"&gt;مینی ژل وک (Woke Mini)&lt;/td&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;"&gt;۰.۷ میلی‌متر&lt;/td&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;"&gt;ژلی ضدآب ژاپنی&lt;/td&gt;
+            &lt;td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #16a34a;"&gt;استاندارد EN71/III اروپا&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 style="font-size: 1.25rem; color: #1e293b; font-weight: 700; margin: 1.8rem 0 0.8rem;"&gt;لیست تودرتو و نکات استفاده&lt;/h3&gt;
+&lt;ul style="margin-right: 1.5rem; margin-bottom: 1.5rem; color: #475569;"&gt;
+    &lt;li style="margin-bottom: 0.6rem;"&gt;&lt;strong style="color: #0f172a;"&gt;نحوه نگهداری صحیح:&lt;/strong&gt;
+        &lt;ul style="margin-right: 1.2rem; margin-top: 0.4rem; list-style-type: circle;"&gt;
+            &lt;li style="margin-bottom: 0.3rem;"&gt;دور از تابش مستقیم نور خورشید نگهداری شود.&lt;/li&gt;
+            &lt;li style="margin-bottom: 0.3rem;"&gt;درپوش روان‌نویس‌ها پس از پایان کار کاملاً بسته شود.&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li style="margin-bottom: 0.6rem;"&gt;&lt;strong style="color: #0f172a;"&gt;ارسال رنگ سفارشات:&lt;/strong&gt; به صورت رنگ‌بندی رندوم کارخانه‌ای انجام خواهد شد.&lt;/li&gt;
+&lt;/ul&gt;</pre>
+        </div>
+
+        <span class="section-label">پیش‌نمایش رندر شده (شکل ظاهری که در سایت پس از درج رندر می‌شود):</span>
+        <div class="preview-box">
+            <h2 style="font-size: 1.55rem; color: #1e3a8a; border-bottom: 3px solid #3b82f6; padding-bottom: 0.6rem; margin-top: 1.5rem; margin-bottom: 1.2rem; font-weight: 800; direction: rtl; text-align: right;">راهنمای خرید و بررسی تخصصی نوشت‌افزار ارگونومیک</h2>
+
+            <p style="font-size: 1rem; line-height: 1.8; color: #475569; text-align: justify; margin-bottom: 1.2rem; direction: rtl; text-align: right;">نوشتن روزمره نباید خسته‌کننده یا آسیب‌رسان باشد. نوشت‌افزارهای ارگونومیک با تکیه بر ساختار بدنه سه‌وجهی و توزیع مناسب وزن، به خستگی عضلات ساعد پایان می‌دهند. این مجموعه محصول تلفیقی از مهندسی روز آلمان و کیفیت تایید شده بهداشتی است.</p>
+
+            <!-- باکس راهنما و هشدار بسیار شیک -->
+            <div style="background-color: #f0fdf4; border-right: 5px solid #16a34a; padding: 1.2rem; border-radius: 8px; margin: 1.5rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); direction: rtl; text-align: right;">
+                <strong style="color: #14532d; font-size: 1.05rem; display: block; margin-bottom: 0.4rem;">🛡️ استاندارد ایمنی و سلامت کودکان</strong>
+                <p style="color: #166534; font-size: 0.95rem; margin: 0; line-height: 1.6;">تمامی محصولات این برند دارای نشان معتبر سیب سلامت و عاری از مواد سمی (CFC Free & BPA Free) هستند تا سلامت فرزندان شما حین یادگیری کاملاً تضمین شود.</p>
+            </div>
+
+            <h3 style="font-size: 1.25rem; color: #1e293b; font-weight: 700; margin: 1.8rem 0 0.8rem; direction: rtl; text-align: right;">جدول مقایسه فنی و کاتالوگ مدل‌ها</h3>
+
+            <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; text-align: right; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border-radius: 8px; overflow: hidden; direction: rtl;">
+                <thead>
+                    <tr style="background-color: #1e3a8a; color: #ffffff;">
+                        <th style="padding: 0.8rem 1.2rem; font-weight: 700; border: 1px solid #d1d5db; text-align: right;">مدل محصول</th>
+                        <th style="padding: 0.8rem 1.2rem; font-weight: 700; border: 1px solid #d1d5db; text-align: right;">قطر نوک</th>
+                        <th style="padding: 0.8rem 1.2rem; font-weight: 700; border: 1px solid #d1d5db; text-align: right;">نوع جوهر</th>
+                        <th style="padding: 0.8rem 1.2rem; font-weight: 700; border: 1px solid #d1d5db; text-align: right;">شاخص بهداشتی</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #ffffff;">
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #1e293b; font-weight: bold;">مدل دکتر پنتر (Dr. Panter)</td>
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;">۰.۷ میلی‌متر</td>
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;">Ultra Glide Ink (روان)</td>
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #16a34a;">نانو آنتی‌باکتریال 🦠</td>
+                    </tr>
+                    <tr style="background-color: #f8fafc;">
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #1e293b; font-weight: bold;">کاندید ژلی (Candid Gel)</td>
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;">۰.۵ میلی‌متر</td>
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;">ژلی سریع‌خشک (Rapid Set)</td>
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #f59e0b;">بدون آلاینده (BPA Free)</td>
+                    </tr>
+                    <tr style="background-color: #ffffff;">
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #1e293b; font-weight: bold;">مینی ژل وک (Woke Mini)</td>
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;">۰.۷ میلی‌متر</td>
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #475569;">ژلی ضدآب ژاپنی</td>
+                        <td style="padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; color: #16a34a;">استاندارد EN71/III اروپا</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="font-size: 1.25rem; color: #1e293b; font-weight: 700; margin: 1.8rem 0 0.8rem; direction: rtl; text-align: right;">لیست تودرتو و نکات استفاده</h3>
+            <ul style="margin-right: 1.5rem; margin-bottom: 1.5rem; color: #475569; direction: rtl; text-align: right;">
+                <li style="margin-bottom: 0.6rem;"><strong style="color: #0f172a;">نحوه نگهداری صحیح:</strong>
+                    <ul style="margin-right: 1.2rem; margin-top: 0.4rem; list-style-type: circle;">
+                        <li style="margin-bottom: 0.3rem;">دور از تابش مستقیم نور خورشید نگهداری شود.</li>
+                        <li style="margin-bottom: 0.3rem;">درپوش روان‌نویس‌ها پس از پایان کار کاملاً بسته شود.</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 0.6rem;"><strong style="color: #0f172a;">ارسال رنگ سفارشات:</strong> به صورت رنگ‌بندی رندوم کارخانه‌ای انجام خواهد شد.</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div id="toast" class="toast">کد به کلیپ‌بورد کپی شد!</div>
+
+<script>
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    // روش صحیح کپی
+    function copyCodeFixed(elementId) {
+        const preElement = document.getElementById(elementId);
+        const rawHtml = preElement.innerText;
+        
+        navigator.clipboard.writeText(rawHtml).then(() => {
+            showToast("✅ کد HTML پیشرفته و استایل‌دار با موفقیت کپی شد! آماده قرارگیری در شاپفا.");
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت محتوای برند کوروش (Kourosh) - زنگ اول</title>
+    <!-- Vazirmatn Persian Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --toast-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to left, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--accent-blue);
+        }
+
+        .meta-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .meta-table tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .meta-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .meta-table td {
+            padding: 1rem 0.5rem;
+            vertical-align: middle;
+        }
+
+        .meta-label {
+            font-weight: 700;
+            width: 20%;
+            color: var(--text-primary);
+        }
+
+        .meta-value {
+            width: 65%;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .meta-value code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: monospace;
+            font-size: 0.9rem;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .btn-copy {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-copy:hover {
+            background: var(--accent-blue);
+            color: white;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-label {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .code-container {
+            position: relative;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+            max-height: 250px;
+        }
+
+        .code-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.9rem;
+            color: #38bdf8;
+        }
+
+        .preview-container {
+            background: #ffffff;
+            color: #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .preview-container h2 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .preview-container h3 {
+            font-size: 1.2rem;
+            color: #334155;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .preview-container h4 {
+            font-size: 1.05rem;
+            color: #475569;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        .preview-container p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .preview-container ul {
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .preview-container li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--toast-bg);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            opacity: 0;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .badge {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .logo-guideline {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            display: block;
+            border-right: 2px solid var(--accent-orange);
+            padding-right: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1 id="brand-title">برند کوروش (Kourosh)</h1>
+            <p>خروجی فیلدها و کدهای HTML معتبر و راستی‌آزمایی‌شده جهت درج در پنل شاپفا (نسخه نهایی هماهنگ با دیتابیس رسمی)</p>
+        </header>
+
+        <div class="grid">
+            <!-- Metadata Card -->
+            <div class="card" id="metadata-card">
+                <div class="card-title">
+                    <span>فیلدهای شناسنامه برند</span>
+                    <span class="badge">تأییدشده و مستند</span>
+                </div>
+                <table class="meta-table">
+                    <tr>
+                        <td class="meta-label">نام برند (فارسی)</td>
+                        <td class="meta-value" id="val-name">کوروش</td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-name')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">عنوان انگلیسی برند</td>
+                        <td class="meta-value" id="val-eng">Kourosh</td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-eng')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">عنوان در لینک (Slug)</td>
+                        <td class="meta-value"><code id="val-slug">kourosh</code></td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-slug')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">تصویر لوگو</td>
+                        <td class="meta-value">
+                            <span class="logo-guideline">لوگوی رسمی تولیدی استامپ کوروش با فرمت PNG بدون پس‌زمینه (شفاف) و ابعاد حداقل ۲۵۰×۲۵۰ بارگذاری شود.</span>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">عنوان صفحه (Title)</td>
+                        <td class="meta-value" id="val-meta-title">خرید استامپ و جوهر استامپ کوروش | قیمت Kourosh زنگ اول</td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-meta-title')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">توضیحات (Meta Desc)</td>
+                        <td class="meta-value" id="val-meta-desc">خرید آنلاین انواع استامپ فلزی و نانو کوروش و جوهر استامپ در رنگ‌های مشکی، آبی و قرمز با ماندگاری بالا و قدمت بیش از ۴ دهه در زنگ اول.</td>
+                        <td>
+                            <button class="btn-copy" onclick="copyText('val-meta-desc')">
+                                کپی
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-label">ایندکس صفحه</td>
+                        <td class="meta-value"><span class="badge" style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--accent-green)">Index</span></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Top Text Card -->
+            <div class="card" id="top-desc-card">
+                <div class="card-title">
+                    <span>متن بالای صفحه (Optional HTML Output)</span>
+                    <button class="btn-copy" onclick="copyCode('code-top')">
+                        کپی کل کد HTML
+                    </button>
+                </div>
+                
+                <div class="section-header">
+                    <span class="section-label">کد HTML خروجی:</span>
+                </div>
+                <div class="code-container">
+                    <pre id="code-top">&lt;p&gt;اصالت و ماندگاری ثبت اسناد را با استامپ و جوهر کوروش (Kourosh) تجربه کنید! استامپ‌های معمولی و نانو کوروش با نمد متراکم و جوهرهای ضدخشک‌شدن، انتخاب اول بانک‌ها، ادارات و دفاتر ثبت رسمی در سراسر کشور هستند. 🏛️🖋️🛡️&lt;/p&gt;</pre>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-label">پیش‌نمایش بصری در سایت:</span>
+                </div>
+                <div class="preview-container">
+                    <p>اصالت و ماندگاری ثبت اسناد را با استامپ و جوهر کوروش (Kourosh) تجربه کنید! استامپ‌های معمولی و نانو کوروش با نمد متراکم و جوهرهای ضدخشک‌شدن، انتخاب اول بانک‌ها، ادارات و دفاتر ثبت رسمی در سراسر کشور هستند. 🏛️🖋️🛡️</p>
+                </div>
+            </div>
+
+            <!-- Bottom Text Card -->
+            <div class="card" id="bottom-desc-card">
+                <div class="card-title">
+                    <span>متن پایین صفحه (Optional HTML Output)</span>
+                    <button class="btn-copy" onclick="copyCode('code-bottom')">
+                        کپی کل کد HTML
+                    </button>
+                </div>
+                
+                <div class="section-header">
+                    <span class="section-label">کد HTML خروجی:</span>
+                </div>
+                <div class="code-container">
+                    <pre id="code-bottom">&lt;h2&gt;راهنمای بررسی و خرید استامپ پد و جوهر استامپ کوروش (Kourosh)&lt;/h2&gt;
+&lt;p&gt;برند ایرانی کوروش (Kourosh) با بیش از ۴ دهه سابقه درخشان (تاسیس ۱۳۵۹)، معتبرترین و قدیمی‌ترین واحد تولیدی استامپ پد و جوهر استامپ در کشور است. این نشان تجاری به دلیل کیفیت بی‌رقیب خود، سال‌هاست به عنوان استاندارد رسمی ثبت اثر انگشت در سازمان‌های حاکمیتی، بانک‌ها و ثبت اسناد شناخته می‌شود.&lt;/p&gt;
+&lt;h3&gt;محصولات شاخص برند کوروش&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;بالشتک‌های استامپ فلزی و پلاستیکی:&lt;/strong&gt; در سایزهای مختلف جیبی (نمره ۰)، متوسط (نمره ۲.۵) و بزرگ (۱۲ در ۲۰ سانتی‌متر) با نمد باکیفیت و متراکم که تحت فشارهای مکرر دفرمه نمی‌شود.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;استامپ‌های نانوی کوروش (سری Goldland):&lt;/strong&gt; تولید شده با فناوری نانو جهت ثبت اثر انگشت شفاف روی کاغذ با قابلیت پاک‌شدن بسیار آسان جوهر از روی انگشتان تنها با یک دستمال کاغذی خشک.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;بطری‌های جوهر استامپ کوروش:&lt;/strong&gt; در حجم‌های ۲۴ میلی‌لیتری و گالن‌های صنعتی ۱ لیتری در رنگ‌های آبی، مشکی، قرمز و سبز با فرمولاسیون ضدخشک‌شدن سریع در مجاورت هوا.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;پایداری بالا و ثبات رنگ بر روی اسناد رسمی، از ویژگی‌های منحصر‌به‌فرد استامپ کوروش است. شما می‌توانید کاتالوگ کامل محصولات اداری کوروش را با ضمانت اصالت از زنگ اول خریداری نمایید.&lt;/p&gt;</pre>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-label">پیش‌نمایش بصری در سایت:</span>
+                </div>
+                <div class="preview-container" id="bottom-preview-container">
+                    <!-- محتوا توسط JavaScript بارگذاری می‌شود -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">با موفقیت کپی شد!</div>
+
+    <script>
+        // Inject bottom HTML preview safely via JS to avoid template escaping bugs
+        (function() {
+            var bottomHtml = "<h2>راهنمای بررسی و خرید استامپ پد و جوهر استامپ کوروش (Kourosh)</h2>\n<p>برند ایرانی کوروش (Kourosh) با بیش از ۴ دهه سابقه درخشان (تاسیس ۱۳۵۹)، معتبرترین و قدیمی‌ترین واحد تولیدی استامپ پد و جوهر استامپ در کشور است. این نشان تجاری به دلیل کیفیت بی‌رقیب خود، سال‌هاست به عنوان استاندارد رسمی ثبت اثر انگشت در سازمان‌های حاکمیتی، بانک‌ها و ثبت اسناد شناخته می‌شود.</p>\n<h3>محصولات شاخص برند کوروش</h3>\n<ul>\n  <li><strong>بالشتک‌های استامپ فلزی و پلاستیکی:</strong> در سایزهای مختلف جیبی (نمره ۰)، متوسط (نمره ۲.۵) و بزرگ (۱۲ در ۲۰ سانتی‌متر) با نمد باکیفیت و متراکم که تحت فشارهای مکرر دفرمه نمی‌شود.</li>\n  <li><strong>استامپ‌های نانوی کوروش (سری Goldland):</strong> تولید شده با فناوری نانو جهت ثبت اثر انگشت شفاف روی کاغذ با قابلیت پاک‌شدن بسیار آسان جوهر از روی انگشتان تنها با یک دستمال کاغذی خشک.</li>\n  <li><strong>بطری‌های جوهر استامپ کوروش:</strong> در حجم‌های ۲۴ میلی‌لیتری و گالن‌های صنعتی ۱ لیتری در رنگ‌های آبی، مشکی، قرمز و سبز با فرمولاسیون ضدخشک‌شدن سریع در مجاورت هوا.</li>\n</ul>\n<p>پایداری بالا و ثبات رنگ بر روی اسناد رسمی، از ویژگی‌های منحصر‌به‌فرد استامپ کوروش است. شما می‌توانید کاتالوگ کامل محصولات اداری کوروش را با ضمانت اصالت از زنگ اول خریداری نمایید.</p>";
+            var container = document.getElementById('bottom-preview-container');
+            if (container) {
+                container.innerHTML = bottomHtml;
+            }
+        })();
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

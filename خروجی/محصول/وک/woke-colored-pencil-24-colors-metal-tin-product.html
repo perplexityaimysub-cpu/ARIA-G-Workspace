@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت محصول مداد رنگی ۲۴ رنگ جعبه فلزی وک - زنگ اول</title>
+    <!-- Vazirmatn Persian Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --toast-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(to left, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .info-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.85rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: bold;
+        }
+
+        .info-value-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-value {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+
+        .info-value.empty-field {
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+            font-weight: normal;
+        }
+
+        .btn-copy-small {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent-blue);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        .btn-copy-small:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .btn-copy {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--accent-green);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        .btn-copy:hover {
+            background: var(--accent-green);
+            color: white;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Tag Badges styling */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .tag-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+        }
+
+        .tag-badge button {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent-blue);
+            padding: 0.05rem 0.3rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.7rem;
+        }
+
+        .tag-badge button:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .section-header {
+            margin: 1.5rem 0 0.5rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .code-container {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+            overflow-x: auto;
+            max-height: 250px;
+        }
+
+        .code-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #38bdf8;
+        }
+
+        .preview-container {
+            background: #ffffff;
+            color: #334155;
+            border-radius: 12px;
+            padding: 1.8rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            margin-top: 0.5rem;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--toast-bg);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 0.75rem 2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            opacity: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .variant-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+        .variant-table th, .variant-table td {
+            border: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: right;
+        }
+        .variant-table th {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+        .variant-table td {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>مدیریت محصول مداد رنگی ۲۴ رنگ جعبه فلزی وک - زنگ اول</h1>
+            <p>انطباق کامل فیلدها با پنل مدیریت فروشگاه‌ساز شاپفا (چیدمان و ترتیب رسمی شاپفا)</p>
+        </header>
+
+        <!-- کارت ۱: اطلاعات محصول -->
+        <div class="card">
+            <div class="card-title">۱. اطلاعات محصول (Product Information)</div>
+            <div class="grid-2" style="margin-bottom: 1.5rem;">
+                <div class="info-item">
+                    <span class="info-label">نام محصول *</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-name">مداد رنگی ۲۴ رنگ جعبه فلزی وک</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-name')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">توضیحات کوتاه محصول * (SEO Meta Snippet)</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-shortdesc">مداد رنگی ۲۴ رنگ جعبه فلزی وک مدل 9801H-24 در قاب فلزی شکیل و محکم، پالت کاملی از رنگ‌های غیرسمی با تراش‌پذیری روان را ارائه می‌دهد.</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-shortdesc')">کپی توضیحات کوتاه</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-item" style="margin-bottom: 1rem; background: rgba(0,0,0,0.15);">
+                <span class="info-label" style="color: var(--accent-green);">توضیحات تکمیلی محصول (کد HTML و کپی‌رایتینگ متقاعدکننده)</span>
+                <div style="margin-top: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">جهت استفاده در تب توضیحات شاپفا</span>
+                    <button class="btn-copy" onclick="copyCode('code-long')">کپی کل کد HTML توضیحات تکمیلی</button>
+                </div>
+                <div class="code-container" style="margin-top: 0.75rem;">
+                    <pre id="code-long">&lt;div style="direction: rtl; font-family: Tahoma, Arial, sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; max-width: 800px; margin: auto; line-height: 1.8; color: #334155;"&gt;
+  &lt;h2 style="color: #4a148c; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 20px; font-weight: bold; margin-bottom: 15px;"&gt;مداد رنگی ۲۴ رنگ فلزی وک؛ حرفه‌ای‌ترین استودیوی نقاشی همراه با بدنه ضد ضربه&lt;/h2&gt;
+  
+  &lt;p&gt;برای هنرجویان و دانش‌آموزانی که نقاشی را به عنوان یک فعالیت جدی دنبال می‌کنند، بسته‌بندی فلزی ۲۴ تایی وک انتخابی پرمیوم است. قاب تخت فلزی چیدمان یک‌ردیفه‌ای از رنگ‌ها را ارائه می‌دهد تا دسترسی بصری و فیزیکی به تمام طیف‌ها در کسری از ثانیه مهیا شود.&lt;/p&gt;
+
+  &lt;h3 style="color: #1e293b; font-size: 16px; margin-top: 20px; margin-bottom: 10px; font-weight: bold;"&gt;نقاط قوت مداد ۲۴ رنگ جعبه فلزی وک:&lt;/h3&gt;
+  &lt;ul style="margin-right: 20px; margin-bottom: 20px; list-style-type: square;"&gt;
+    &lt;li&gt;&lt;strong&gt;بسته‌بندی یک‌ردیفه تخت (Flat Tin Box):&lt;/strong&gt; تسلط دیداری سریع بر رنگ‌ها و دسته‌بندی منظم.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;تراکم پیگمنت مومی بالا:&lt;/strong&gt; امکان رنگ‌آمیزی‌های عمیق، سایه‌روشن و ترکیب بی‌نظیر لایه‌ها روی کاغذ بدون خراشیدن سطح.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;فاقد مواد کلر و سرب مضر:&lt;/strong&gt; فرمولاسیون غیرسمی سازگار با پوست دست و ایمن برای تنفس کودکان.&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div style="margin-top: 25px; padding: 15px; border-right: 4px solid #4a148c; background-color: #f3e5f5; border-radius: 6px;"&gt;
+    &lt;h4 style="font-weight: bold; color: #4a148c; margin-bottom: 8px; font-size: 15px;"&gt;ابعاد و جزییات مرسوله پستی:&lt;/h4&gt;
+    &lt;p style="margin-bottom: 8px; font-weight: bold;"&gt;۱. وزن ناخالص جهت محاسبات لجستیک شاپفا چقدر است؟&lt;/p&gt;
+    &lt;p style="margin-bottom: 15px; margin-right: 10px;"&gt;وزن ناخالص این محصول ۲۹۰ گرم بوده و با ابعاد ۲۰ × ۱۷ × ۱.۵ سانتی‌متر بسته‌بندی شده است که در محاسبات پستی شاپفا ثبت می‌گردد.&lt;/p&gt;
+    &lt;p style="margin-bottom: 8px; font-weight: bold;"&gt;۲. آیا مغزی این مدادها نرم است؟&lt;/p&gt;
+    &lt;p style="margin-right: 10px; margin-bottom: 0;"&gt;بله، این مدادها دارای پیگمنت‌های روغنی/مومی بسیار نرمی هستند که رنگ‌دهی روانی را روی انواع مقوا به ارمغان می‌آورند.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+                <div class="section-header" style="margin-top: 1rem; color: var(--text-primary);">پیش‌نمایش زنده توضیحات در سایت:</div>
+                <div class="preview-container" id="long-preview-container">
+                    <!-- محتوا توسط JS تزریق می‌شود -->
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۲: تصاویر محصول -->
+        <div class="card">
+            <div class="card-title">۲. تصاویر محصول (Product Images)</div>
+            <div class="grid-2">
+                <div class="info-item">
+                    <span class="info-label">تصاویر محصول</span>
+                    <span class="info-value empty-field">توسط اپراتور آپلود شود (عکس‌های آتلیه‌ای یا ژورنالی کالا)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">ویدیو محصول (URL)</span>
+                    <div class="info-value-row">
+                        <span class="info-value empty-field" id="f-video">خالی (در صورت ساخت تیزر ویدیویی، لینک آپارات/یوتیوب وارد شود)</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-video')">کپی</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۳: قیمت‌گذاری و فروش -->
+        <div class="card">
+            <div class="card-title">۳. قیمت‌گذاری و فروش (Pricing & Sales)</div>
+            <div class="grid-2" style="margin-bottom: 1rem;">
+                <div class="info-item">
+                    <span class="info-label">قیمت محصول (تومان) *</span>
+                    <div class="info-value-row">
+                        <span class="info-value empty-field" id="f-price">تعیین بر اساس نرخ مصوب روز فروشگاه</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-price')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">قیمت قدیم (تومان) (جهت نمایش خط تخفیف قرمز)</span>
+                    <div class="info-value-row">
+                        <span class="info-value empty-field" id="f-oldprice">تنظیم دلخواه توسط کاربر</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-oldprice')">کپی</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="info-item">
+                    <span class="info-label">قیمت خرید (تومان) (جهت محاسبات حسابداری سود شاپفا)</span>
+                    <div class="info-value-row">
+                        <span class="info-value empty-field" id="f-cost">تنظیم دلخواه توسط کاربر</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-cost')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">وزن محصول (گرم) * (محاسبه خودکار هزینه ارسال پستی)</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-weight">290</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-weight')">کپی</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۴: انبارداری -->
+        <div class="card">
+            <div class="card-title">۴. انبارداری (Inventory / Warehousing)</div>
+            <div class="grid-3" style="margin-bottom: 1rem;">
+                <div class="info-item">
+                    <span class="info-label">کد محصول در انبار (SKU پایه بدون فاصله/خط تیره) *</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-sku">1605409801024</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-sku')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">وضعیت موجودی *</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-stockstatus">موجود</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-stockstatus')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">واحد *</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-unit">بسته</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-unit')">کپی</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="info-item">
+                    <span class="info-label">مقدار (تعداد موجودی عددی در انبار)</span>
+                    <div class="info-value-row">
+                        <span class="info-value empty-field" id="f-qty">تعیین تعداد فیزیکی قفسه انبار توسط کاربر</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-qty')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">موقعیت در انبار (آدرس فیزیکی قفسه‌ها)</span>
+                    <div class="info-value-row">
+                        <span class="info-value empty-field" id="f-loc">تعیین آدرس قفسه (مثلاً A4-C2) توسط کاربر</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-loc')">کپی</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۵: دسته‌بندی و برچسب‌ها -->
+        <div class="card">
+            <div class="card-title">۵. دسته بندی و برچسب‌ها (Taxonomy & SEO Tags)</div>
+            <div class="grid-3" style="margin-bottom: 1rem;">
+                <div class="info-item">
+                    <span class="info-label">دسته بندی اصلی *</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-maincat">لوازم هنری و صنایع دستی > مداد رنگی</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-maincat')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">دسته بندی ها * (مسیر درختی کامل)</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-cats">لوازم هنری و صنایع دستی > مداد رنگی</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-cats')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">برند محصول</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-brand">وک (Woke)</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-brand')">کپی</button>
+                    </div>
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="info-label" style="color: var(--accent-orange);">برچسب‌های هدفمند (به صورت نشان جداگانه با کپی مجزا)</span>
+                <div class="tag-container" id="tag-container-badges">
+                    <span class="badge badge-tag" onclick="copyTagDirect('مداد رنگی وک')">مداد رنگی وک</span>
+<span class="badge badge-tag" onclick="copyTagDirect('مدادرنگی ۲۴ رنگ فلزی')">مدادرنگی ۲۴ رنگ فلزی</span>
+<span class="badge badge-tag" onclick="copyTagDirect('مداد رنگی پرمیوم')">مداد رنگی پرمیوم</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۶: بهینه سازی برای موتور‌های جستجو (SEO) -->
+        <div class="card">
+            <div class="card-title">۶. بهینه سازی برای موتور‌های جستجو (SEO)</div>
+            <div class="grid-2" style="margin-bottom: 1rem;">
+                <div class="info-item">
+                    <span class="info-label">عنوان ( Title )</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-seotitle">مداد رنگی ۲۴ رنگ جعبه فلزی وک مدل 9801H-24</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-seotitle')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">عنوان در لینک (SEO URL Slug)</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-slug">woke-colored-pencil-24-colors-metal-tin</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-slug')">کپی</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-3" style="margin-bottom: 1rem;">
+                <div class="info-item" style="grid-column: span 2;">
+                    <span class="info-label">کلمات کلیدی (متا کیوردز)</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-keywords">مداد رنگی وک, مدادرنگی ۲۴ رنگ فلزی, مداد رنگی پرمیوم</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-keywords')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">لینک کانونیکال (Canonical Link)</span>
+                    <div class="info-value-row">
+                        <span class="info-value empty-field" id="f-canonical">خالی (تولید خودکار در سیستم شاپفا)</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-canonical')">کپی</button>
+                    </div>
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="info-label">متن توضیحات (متا دسکریپشن گوگل)</span>
+                <div class="info-value-row">
+                    <span class="info-value" id="f-metadesc">مداد رنگی ۲۴ رنگ جعبه فلزی وک مدل 9801H-24 در قاب فلزی شکیل و محکم، پالت کاملی از رنگ‌های غیرسمی با تراش‌پذیری روان را ارائه می‌دهد.</span>
+                    <button class="btn-copy-small" onclick="copyTextDirect('f-metadesc')">کپی متا دسکریپشن</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۷: اطلاعات انتشار -->
+        <div class="card">
+            <div class="card-title">۷. اطلاعات انتشار (Publishing Information)</div>
+            <div class="grid-2">
+                <div class="info-item">
+                    <span class="info-label">وضعیت انتشار *</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-status">منتشر شده</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-status')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">انتشار زمان‌دار</span>
+                    <div class="info-value-row">
+                        <span class="info-value empty-field" id="f-sched">خالی (بلافاصله پس از درج کالا منتشر شود)</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-sched')">کپی</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۸: اطلاعات تکمیلی -->
+        <div class="card">
+            <div class="card-title">۸. اطلاعات تکمیلی (Additional Information)</div>
+            <div class="grid-2" style="margin-bottom: 1rem;">
+                <div class="info-item">
+                    <span class="info-label">نمایش فرم نظر *</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-showcomments">بله (فعال)</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-showcomments')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">عنوان فرم نظر (جایگزین عنوان پیش‌فرض)</span>
+                    <div class="info-value-row">
+                        <span class="info-value empty-field" id="f-commtitle">خالی (استفاده از عنوان پیش‌فرض پورتال)</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-commtitle')">کپی</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="info-item">
+                    <span class="info-label">محصول ویژه * (نمایش در بخش کالاهای پیشنهادی صفحه اول)</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-featured">خیر (محصول عادی)</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-featured')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">درج امتیاز * (امکان ثبت امتیاز ستاره‌ای توسط خریداران)</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="f-allowratings">بله (فعال)</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('f-allowratings')">کپی</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۹: مشخصات محصول -->
+        <div class="card">
+            <div class="card-title">۹. مشخصات محصول (تب مشخصات فنی کالا در سایت)</div>
+            <div class="info-item" style="margin-bottom: 1rem; background: rgba(59, 130, 246, 0.1);">
+                <span class="info-label" style="color: var(--accent-blue);">نوع کالا در شاپفا (قالب مشخصات فنی)</span>
+                <div class="info-value-row">
+                    <span class="info-value" style="font-size: 1.05rem;" id="f-shopfatype">مدادهای رنگی دانش‌آموزی (Colored Pencils)</span>
+                    <button class="btn-copy-small" onclick="copyTextDirect('f-shopfatype')">کپی نوع کالا</button>
+                </div>
+            </div>
+            <div class="grid-3">
+                                <div class="info-item">
+                    <span class="info-label">تعداد رنگ</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="attr-val-0">۲۴ رنگ</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('attr-val-0')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">نوع بسته‌بندی</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="attr-val-1">جعبه فلزی تخت و مستحکم</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('attr-val-1')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">جنس بدنه</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="attr-val-2">چوب شش‌ضلعی فرآوری‌شده</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('attr-val-2')">کپی</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">رنگ‌های متالیک (طلایی/نقره‌ای)</span>
+                    <div class="info-value-row">
+                        <span class="info-value" id="attr-val-3">بله (دارای رنگ طلایی)</span>
+                        <button class="btn-copy-small" onclick="copyTextDirect('attr-val-3')">کپی</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۱۰: متغیرهای محصول -->
+        <div class="card">
+            <div class="card-title">۱۰. متغیرهای محصول (تنوع رنگ، سایز، وزن با انبارداری و قیمت مجزا)</div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+                توجه: کدهای SKU متغیرها به صورت عددی یکپارچه و بدون خط تیره ثبت شده‌اند.
+            </p>
+            <table class="variant-table">
+                <thead>
+                    <tr>
+                        <th>نوع متغیر</th>
+                        <th>مقدار متغیر</th>
+                        <th>کد متغیر در انبار (SKU اختصاصی عددی)</th>
+                        <th>موجودی فرضی انبار</th>
+                        <th>قیمت متغیر</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                        <tr>
+                        <td>نوع بسته</td>
+                        <td>جعبه فلزی ۲۴ رنگ</td>
+                        <td><strong style="color: var(--accent-orange);">1605409801024</strong></td>
+                        <td>تعیین توسط کاربر</td>
+                        <td>تعیین توسط کاربر</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">با موفقیت کپی شد!</div>
+
+    <script>
+        // Inject long description safely
+        (function() {
+            var longHtml = "<div style=\"direction: rtl; font-family: Tahoma, Arial, sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; max-width: 800px; margin: auto; line-height: 1.8; color: #334155;\">\n  <h2 style=\"color: #4a148c; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 20px; font-weight: bold; margin-bottom: 15px;\">مداد رنگی ۲۴ رنگ فلزی وک؛ حرفه‌ای‌ترین استودیوی نقاشی همراه با بدنه ضد ضربه</h2>\n  \n  <p>برای هنرجویان و دانش‌آموزانی که نقاشی را به عنوان یک فعالیت جدی دنبال می‌کنند، بسته‌بندی فلزی ۲۴ تایی وک انتخابی پرمیوم است. قاب تخت فلزی چیدمان یک‌ردیفه‌ای از رنگ‌ها را ارائه می‌دهد تا دسترسی بصری و فیزیکی به تمام طیف‌ها در کسری از ثانیه مهیا شود.</p>\n\n  <h3 style=\"color: #1e293b; font-size: 16px; margin-top: 20px; margin-bottom: 10px; font-weight: bold;\">نقاط قوت مداد ۲۴ رنگ جعبه فلزی وک:</h3>\n  <ul style=\"margin-right: 20px; margin-bottom: 20px; list-style-type: square;\">\n    <li><strong>بسته‌بندی یک‌ردیفه تخت (Flat Tin Box):</strong> تسلط دیداری سریع بر رنگ‌ها و دسته‌بندی منظم.</li>\n    <li><strong>تراکم پیگمنت مومی بالا:</strong> امکان رنگ‌آمیزی‌های عمیق، سایه‌روشن و ترکیب بی‌نظیر لایه‌ها روی کاغذ بدون خراشیدن سطح.</li>\n    <li><strong>فاقد مواد کلر و سرب مضر:</strong> فرمولاسیون غیرسمی سازگار با پوست دست و ایمن برای تنفس کودکان.</li>\n  </ul>\n\n  <div style=\"margin-top: 25px; padding: 15px; border-right: 4px solid #4a148c; background-color: #f3e5f5; border-radius: 6px;\">\n    <h4 style=\"font-weight: bold; color: #4a148c; margin-bottom: 8px; font-size: 15px;\">ابعاد و جزییات مرسوله پستی:</h4>\n    <p style=\"margin-bottom: 8px; font-weight: bold;\">۱. وزن ناخالص جهت محاسبات لجستیک شاپفا چقدر است؟</p>\n    <p style=\"margin-bottom: 15px; margin-right: 10px;\">وزن ناخالص این محصول ۲۹۰ گرم بوده و با ابعاد ۲۰ × ۱۷ × ۱.۵ سانتی‌متر بسته‌بندی شده است که در محاسبات پستی شاپفا ثبت می‌گردد.</p>\n    <p style=\"margin-bottom: 8px; font-weight: bold;\">۲. آیا مغزی این مدادها نرم است؟</p>\n    <p style=\"margin-right: 10px; margin-bottom: 0;\">بله، این مدادها دارای پیگمنت‌های روغنی/مومی بسیار نرمی هستند که رنگ‌دهی روانی را روی انواع مقوا به ارمغان می‌آورند.</p>\n  </div>\n</div>";
+            var container = document.getElementById('long-preview-container');
+            if (container) {
+                container.innerHTML = longHtml;
+            }
+        })();
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        function copyTextDirect(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        function copyTagDirect(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy tag: ', err);
+            });
+        }
+
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy code: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

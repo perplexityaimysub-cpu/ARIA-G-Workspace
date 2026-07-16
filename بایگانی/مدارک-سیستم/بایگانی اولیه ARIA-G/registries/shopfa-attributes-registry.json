@@ -1,0 +1,191 @@
+{
+  "registry_name": "Shopfa Product Attributes & Filters Registry (ARIA-G Standard)",
+  "version": "1.0.0",
+  "last_updated": "2026-07-11",
+  "product_types": {
+    "writing_instruments_pens": {
+      "type_name_fa": "ابزارهای نگارش (خودکار، روان‌نویس، ماژیک)",
+      "attributes": [
+        {
+          "name_fa": "قطر نوشتاری",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["۰.۳ میلی‌متر", "۰.۴ میلی‌متر", "۰.۵ میلی‌متر", "۰.۷ میلی‌متر", "۱.۰ میلی‌متر", "۱.۲ میلی‌متر"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "نوع جوهر",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["ژله‌ای پایه آب", "معمولی (نیمه‌ژل)", "روغنی روان (ULV)", "ماژیک دائمی", "ماژیک وایت‌برد"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "جنس بدنه",
+          "field_type": "select",
+          "filterable": false,
+          "options": ["پلاستیک شفاف کریستالی", "پلاستیک جیر (سافت تاچ)", "پلاستیک ساده", "فلزی استیل", "آلومینیوم"],
+          "seo_importance": "medium"
+        },
+        {
+          "name_fa": "محل گریپ (محل دستگیری)",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["گریپ لاستیکی ضد لغزش", "ساده هم‌جنس بدنه", "گریپ ارگونومیک مثلثی"],
+          "seo_importance": "medium"
+        },
+        {
+          "name_fa": "مکانیزم عملکرد",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["درب‌دار", "فشاری (کلیکی)", "چرخشی"],
+          "seo_importance": "low"
+        }
+      ]
+    },
+    "writing_instruments_pencils": {
+      "type_name_fa": "مداد و اتود ساده (۰.۵، ۰.۷، ۰.۹)",
+      "attributes": [
+        {
+          "name_fa": "درجه سختی مغزی",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["HB", "B", "2B", "4B", "6B", "H", "2H"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "سایز مغزی اتود",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["۰.۳ میلی‌متر", "۰.۵ میلی‌متر", "۰.۷ میلی‌متر", "۰.۹ میلی‌متر"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "پاک‌کن سرخود",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["دارد", "ندارد"],
+          "seo_importance": "medium"
+        },
+        {
+          "name_fa": "فرم ارگونومی بدنه",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["گرد", "شش‌ضلعی", "مثلثی"],
+          "seo_importance": "medium"
+        }
+      ]
+    },
+    "writing_instruments_pencils_2mm_plus": {
+      "type_name_fa": "اتودهای طراحی و فنی (۲ میلی‌متر به بالا)",
+      "attributes": [
+        {
+          "name_fa": "قطر مغزی پذیرش",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["۲.۰ میلی‌متر", "۳.۲ میلی‌متر", "۵.۶ میلی‌متر"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "جنس گیره و قطعات مکانیکی",
+          "field_type": "select",
+          "filterable": false,
+          "options": ["برنج آبکاری‌شده", "استیل ضدزنگ", "پلاستیک فشرده"],
+          "seo_importance": "medium"
+        },
+        {
+          "name_fa": "تراش مغزی در درپوش",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["دارد", "ندارد"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "کاربری",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["طراحی و سیاه‌قلم", "نقشه‌کشی و مهندسی", "نوشتار روزمره"],
+          "seo_importance": "high"
+        }
+      ]
+    },
+    "erasers_and_correctors": {
+      "type_name_fa": "ابزارهای اصلاح و پاک‌کننده (پاک‌کن، غلط‌گیر)",
+      "attributes": [
+        {
+          "name_fa": "تکنولوژی پاک‌کنندگی",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["پلیمری بدون براده (Dust-Free)", "لاک مایع سوپاپی سوزنی", "لاک مایع مینی", "لاک نواری", "پاک‌کن اتودی (یدک‌دار)"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "حجم یا وزن خالص ماده اصلاح",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["۵.۸ گرم", "۱۰ گرم", "۱۵ گرم", "۶ میلی‌لیتر", "۱۲ میلی‌لیتر"],
+          "seo_importance": "medium"
+        },
+        {
+          "name_fa": "استاندارد ایمنی و سلامت",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["فاقد لاتکس و فتالات (PVC-Free)", "فاقد مواد کلردار (CFC-Free)", "پایه آب غیرسمی"],
+          "seo_importance": "high"
+        }
+      ]
+    },
+    "adhesives": {
+      "type_name_fa": "چسب‌ها و اتصال‌دهنده‌ها (جامد، مایع)",
+      "attributes": [
+        {
+          "name_fa": "وزن خالص چسب",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["۸ گرم", "۱۵ گرم", "۲۱ گرم", "۳۶ گرم", "۵۰ گرم"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "پایه ترکیبات شیمیایی",
+          "field_type": "select",
+          "filterable": false,
+          "options": ["بر پایه پلیمر PVP فاقد اسید", "پایه حلال پتروشیمی (تینری)"],
+          "seo_importance": "medium"
+        },
+        {
+          "name_fa": "قابلیت شست‌وشو با آب",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["بله (به راحتی با آب سرد)", "خیر (نیازمند حلال آلی)"],
+          "seo_importance": "high"
+        }
+      ]
+    },
+    "sharpeners": {
+      "type_name_fa": "ابزارهای تراش (ساده، مخزن‌دار، رومیزی)",
+      "attributes": [
+        {
+          "name_fa": "حداکثر قطر پذیرش مداد",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["۲ میلی‌متر (مغزی اتود)", "۸ میلی‌متر (مداد استاندارد)", "۱۱ میلی‌متر (مداد جامبو)"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "ویژگی ساختاری تراش",
+          "field_type": "select",
+          "filterable": true,
+          "options": ["مخزن‌دار تک روزنه جیبی", "مخزن‌دار دوقلو", "رومیزی مکانیکی", "بدون مخزن فلزی"],
+          "seo_importance": "high"
+        },
+        {
+          "name_fa": "جنس تیغه برشی",
+          "field_type": "select",
+          "filterable": false,
+          "options": ["فولاد کربنی سخت‌کاری‌شده ضد زنگ", "فولاد معمولی"],
+          "seo_importance": "medium"
+        }
+      ]
+    }
+  }
+}
