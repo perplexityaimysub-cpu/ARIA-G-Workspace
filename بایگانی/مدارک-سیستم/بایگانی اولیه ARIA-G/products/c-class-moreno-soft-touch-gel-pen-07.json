@@ -1,5 +1,5 @@
 {
-    "name_fa": "روان‌نویس ۰.۷ میلی‌متر سی کلاس مدل مورنو با بدنه مخملی",
+    "name_fa": "روان‌نویس ۰.۷ میلی‌متر سی کلاس مدل مورنو با بدنه سافت تاچ",
     "product_type": "فیزیکی",
     "main_category": "لوازم تحریر > نوشت‌افزار > خودکار و روان‌نویس",
     "brand": "سی کلاس (C.Class)",
@@ -10,12 +10,12 @@
     ],
     "unit": "عدد",
     "sku": "1101100700101",
-    "weight": "۱۲",
+    "weight": "۱۰",
     "stock_status": "موجود",
     "seo_title": "روان‌نویس ۰.۷ میلی‌متر سی کلاس مدل Moreno سافت تاچ",
     "slug": "c-class-moreno-soft-touch-gel-pen-07",
-    "keywords": "روان نویس مورنو سی کلاس, روان نویس سافت تاچ, خودکار مخملی سی کلاس, روان نویس ۰.۷ مورنو",
-    "short_desc": "روان‌نویس ۰.۷ میلی‌متر مورنو سی کلاس با پوشش مخملی بدنه (Soft Touch) و جوهر ژله‌ای روان، مانع خستگی انگشتان در نگارش می‌شود.",
+    "keywords": "روان نویس مورنو سی کلاس, روان نویس سافت تاچ, خودکار سافت تاچ سی کلاس, روان نویس ۰.۷ مورنو",
+    "short_desc": "روان‌نویس ۰.۷ میلی‌متر مورنو سی کلاس با پوشش مات پلیمری بدنه (Soft Touch) و جوهر ژله‌ای روان، مانع خستگی انگشتان در نگارش می‌شود.",
     "shopfa_type": "ابزارهای نگارش (Writing Instruments)",
     "attributes": [
         {
@@ -28,11 +28,19 @@
         },
         {
             "name": "جنس بدنه",
-            "val": "پلاستیک ABS با پوشش مخملی Soft Touch"
+            "val": "پلاستیک ABS با روکش مات پلیمری (Soft Touch)"
         },
         {
             "name": "مکانیزم عملکرد",
             "val": "درب‌دار"
+        },
+        {
+            "name": "ابعاد بسته‌بندی (طول × عرض × ضخامت)",
+            "val": "۱۵ × ۱.۵ × ۱ سانتی‌متر"
+        },
+        {
+            "name": "نوع بسته‌بندی",
+            "val": "جعبه مقوایی"
         }
     ],
     "variants": [
@@ -65,5 +73,5 @@
             "price": "تعیین توسط کاربر"
         }
     ],
-    "long_html": "<div style=\"direction: rtl; font-family: Tahoma, Arial, sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; max-width: 800px; margin: auto; line-height: 1.8; color: #334155;\">\n  <h2 style=\"color: #d81b60; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 20px; font-weight: bold; margin-bottom: 15px;\">روان‌نویس سافت‌تاچ مورنو ۰.۷ میلی‌متر؛ حس لمس مخمل و نگارشی لوکس و خوانا!</h2>\n  \n  <p>روان‌نویس سی کلاس مدل مورنو با ارائه بدنه بسیار مدرن با پوشش سافت‌تاچ (مخملی) تعریف متفاوتی از ارگونومی کار با قلم ارائه کرده است. این لایه مخملی سراسری مانع از سر خوردن قلم حتی با دستان مرطوب می‌شود و تماس انگشتان با بدنه سخت پلاستیک را به تجربه‌ای نرم و دلپذیر تبدیل می‌کند.</p>\n\n  <h3 style=\"color: #1e293b; font-size: 16px; margin-top: 20px; margin-bottom: 10px; font-weight: bold;\">ویژگی‌های متمایز روان‌نویس مورنو:</h3>\n  <ul style=\"margin-right: 20px; margin-bottom: 20px; list-style-type: square;\">\n    <li><strong>پوشش بدنه سافت‌تاچ (Soft Touch):</strong> بدنه قلم با بافت جیر مانند و مخملی پوشانده شده که خستگی عضلات دست حین یادداشت‌برداری‌های فشرده و کنفرانس‌ها را به حداقل می‌رساند.</li>\n    <li><strong>نوک ۰.۷ میلی‌متری روان با جوهر غلیظ:</strong> قطر متوسط نوک آن برای نوشتن اسناد رسمی، امضا و یادداشت‌های روزانه بسیار خوانا و روان است.</li>\n    <li><strong>طراحی یکدست رنگی:</strong> بدنه مخملی هر قلم هم‌رنگ جوهر درونی آن طراحی شده تا در یک نگاه قلم مورد نیاز خود را در کیف یا جامدادی بیابید.</li>\n  </ul>\n\n  <div style=\"margin-top: 25px; padding: 15px; border-right: 4px solid #d81b60; background-color: #fdf2f8; border-radius: 6px;\">\n    <h4 style=\"font-weight: bold; color: #880e4f; margin-bottom: 8px; font-size: 15px;\">پاسخ به سوالات متداول مشتریان:</h4>\n    <p style=\"margin-bottom: 8px; font-weight: bold;\">۱. پوشش سافت‌تاچ مخملی چه تفاوتی با گریپ لاستیکی معمولی دارد؟</p>\n    <p style=\"margin-bottom: 15px; margin-right: 10px;\">در خودکارهای معمولی، یک قطعه لاستیکی کوچک روی بدنه قرار دارد که اغلب کثیف شده یا جابجا می‌شود. در مدل مورنو، کل بدنه به صورت سراسری با پوشش مخملی نرم و لطیف ادغام شده که زیبایی و ارگونومی فوق‌العاده‌ای ایجاد می‌کند.</p>\n    <p style=\"margin-bottom: 8px; font-weight: bold;\">۲. مکانیزم باز و بسته شدن روان‌نویس چگونه است؟</p>\n    <p style=\"margin-right: 10px; margin-bottom: 0;\">این روان‌نویس درب‌دار بوده و درب آن مجهز به یک گیره پلاستیکی منعطف با استقامت بالا جهت اتصال آسان به جیب پیراهن یا پوشه است.</p>\n  </div>\n</div>"
+    "long_html": "<div style=\"direction: rtl; font-family: Vazirmatn, Tahoma, Arial, sans-serif; padding: 25px; border: 1px solid #cbd5e1; border-radius: 16px; background-color: #ffffff !important; max-width: 800px; margin: auto; line-height: 1.8; color: #0f172a !important; box-shadow: 0 4px 15px rgba(0,0,0,0.05);\">\n  <h2 style=\"color: #0f172a !important; border-bottom: 2px solid #2563eb; padding-bottom: 12px; font-size: 20px; font-weight: bold; margin-bottom: 18px; text-align: center;\">روان‌نویس سافت‌تاچ مورنو ۰.۷ میلی‌متر؛ حس لمس سافت‌تاچ و نگارشی لوکس و خوانا!</h2>\n  \n  <p style=\"color: #0f172a !important; font-size: 15px; margin-bottom: 15px;\">روان‌نویس سی کلاس مدل مورنو با ارائه بدنه بسیار مدرن با پوشش سافت‌تاچ (سافت‌تاچ) تعریف متفاوتی از ارگونومی کار با قلم ارائه کرده است. این لایه سافت‌تاچ سراسری مانع از سر خوردن قلم حتی با دستان مرطوب می‌شود و تماس انگشتان با بدنه سخت پلاستیک را به تجربه‌ای نرم و دلپذیر تبدیل می‌کند.</p>\n\n  <h3 style=\"color: #1e3a8a !important; font-size: 16px; font-weight: bold; margin-top: 22px; margin-bottom: 12px;\">ویژگی‌های متمایز روان‌نویس مورنو:</h3>\n  <ul style=\"margin-right: 20px; margin-bottom: 20px; color: #0f172a !important;\">\n    <li style=\"margin-bottom: 8px; color: #0f172a !important;\"><strong style=\"color: #000000 !important;\">پوشش بدنه سافت‌تاچ (Soft Touch):</strong> بدنه قلم با بافت جیر مانند و سافت‌تاچ پوشانده شده که خستگی عضلات دست حین یادداشت‌برداری‌های فشرده و کنفرانس‌ها را به حداقل می‌رساند.</li>\n    <li style=\"margin-bottom: 8px; color: #0f172a !important;\"><strong style=\"color: #000000 !important;\">نوک ۰.۷ میلی‌متری روان با جوهر غلیظ:</strong> قطر متوسط نوک آن برای نوشتن اسناد رسمی، امضا و یادداشت‌های روزانه بسیار خوانا و روان است.</li>\n    <li style=\"margin-bottom: 8px; color: #0f172a !important;\"><strong style=\"color: #000000 !important;\">طراحی یکدست رنگی:</strong> بدنه سافت‌تاچ هر قلم هم‌رنگ جوهر درونی آن طراحی شده تا در یک نگاه قلم مورد نیاز خود را در کیف یا جامدادی بیابید.</li>\n  </ul>\n\n  <div style=\"margin-top: 25px; padding: 18px; border-right: 4px solid #f59e0b; background-color: #fffbeb !important; border-radius: 10px; border: 1px solid #fef3c7;\">\n    <h4 style=\"color: #b45309 !important; font-weight: bold; font-size: 15px; margin-bottom: 10px;\">💡 راهنمای دوستانه برای یک خرید موفق (مدیریت انتظارات):</h4>\n    <p style=\"color: #0f172a !important; margin-bottom: 6px; font-weight: bold;\">۱. پوشش سافت‌تاچ سافت‌تاچ چه تفاوتی با گریپ لاستیکی معمولی دارد؟</p>\n    <p style=\"color: #1e293b !important; margin-right: 10px; margin-bottom: 12px;\">در خودکارهای معمولی، یک قطعه لاستیکی کوچک روی بدنه قرار دارد که اغلب کثیف شده یا جابجا می‌شود. در مدل مورنو، کل بدنه به صورت سراسری با پوشش سافت‌تاچ نرم و لطیف ادغام شده که زیبایی و ارگونومی فوق‌العاده‌ای ایجاد می‌کند.</p>\n    <p style=\"color: #0f172a !important; margin-bottom: 6px; font-weight: bold;\">۲. مکانیزم باز و بسته شدن روان‌نویس چگونه است؟</p>\n    <p style=\"color: #1e293b !important; margin-right: 10px; margin-bottom: 12px;\">این روان‌نویس درب‌دار بوده و درب آن مجهز به یک گیره پلاستیکی منعطف با استقامت بالا جهت اتصال آسان به جیب پیراهن یا پوشه است.</p>\n  </div>\n</div>"
 }

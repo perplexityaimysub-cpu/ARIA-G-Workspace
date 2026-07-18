@@ -10,7 +10,7 @@
     ],
     "unit": "عدد",
     "sku": "1104100200000",
-    "weight": "۵.۸",
+    "weight": "۱۰",
     "stock_status": "موجود",
     "seo_title": "تراش اتود ۲ میل سی کلاس مدل ژوپیتر پاستلی مخزن‌دار",
     "slug": "c-class-jupiter-2mm-lead-sharpener",
@@ -29,6 +29,14 @@
         {
             "name": "جنس تیغه برشی",
             "val": "فولاد کربنی سخت‌کاری‌شده ضد زنگ"
+        },
+        {
+            "name": "ابعاد بسته‌بندی (طول × عرض × ضخامت)",
+            "val": "۲.۵ × ۳.۰ × ۱.۵ سانتی‌متر"
+        },
+        {
+            "name": "نوع بسته‌بندی",
+            "val": "قوطی/جعبه پلاستیکی"
         }
     ],
     "variants": [
@@ -61,5 +69,5 @@
             "price": "تعیین توسط کاربر"
         }
     ],
-    "long_html": "<div style=\"direction: rtl; font-family: Tahoma, Arial, sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; max-width: 800px; margin: auto; line-height: 1.8; color: #334155;\">\n  <h2 style=\"color: #0b3c5d; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 20px; font-weight: bold; margin-bottom: 15px;\">تراش اتود ۲ میلی‌متری ژوپیتر سی کلاس؛ دقت میکرومتری برای هنرمندان و طراحان!</h2>\n  \n  <p>تراشیدن مغزی ظریف و نرم اتودهای طراحی ۲ میلی‌متری همواره نیاز به زاویه بسیار دقیق دارد تا از شکستن مغزی جلوگیری شود. تراش اتود ژوپیتر سی کلاس به طور اختصاصی برای این کار طراحی شده تا هنرمندان بتوانند در سریع‌ترین زمان ممکن، نوک اتود خود را بسیار تیز و آماده سایه‌زنی کنند.</p>\n\n  <h3 style=\"color: #1e293b; font-size: 16px; margin-top: 20px; margin-bottom: 10px; font-weight: bold;\">چرا تراش ژوپیتر سی کلاس همراه همیشگی طراحان است؟</h3>\n  <ul style=\"margin-right: 20px; margin-bottom: 20px; list-style-type: square;\">\n    <li><strong>تیغه فولادی سخت‌کاری‌شده:</strong> تیغه فوق‌العاده تیز این محصول از بهترین متریال آلیاژی ساخته شده تا بدون پرتی و گاز زدن نوک گرافیت، آن را صیقلی کند.</li>\n    <li><strong>طراحی مخزن‌دار جیبی:</strong> مخزن کوچک تعبیه‌شده مانع از پخش شدن براده‌های ریز گرافیت روی نقاشی و دست طراح می‌شود و به راحتی باز و تخلیه می‌گردد.</li>\n    <li><strong>رنگ‌های زیبای پاستلی:</strong> بدنه نیمه‌شفاف با رنگ‌های ملایم و مدرن پاستلی، جلوه‌ای حرفه‌ای و در عین حال فانتزی به ابزار شما می‌بخشد.</li>\n  </ul>\n\n  <div style=\"margin-top: 25px; padding: 15px; border-right: 4px solid #0b3c5d; background-color: #f0f4f8; border-radius: 6px;\">\n    <h4 style=\"font-weight: bold; color: #0b3c5d; margin-bottom: 8px; font-size: 15px;\">پاسخ به سوالات متداول مشتریان:</h4>\n    <p style=\"margin-bottom: 8px; font-weight: bold;\">۱. آیا می‌توان از این تراش برای مدادهای معمولی استفاده کرد؟</p>\n    <p style=\"margin-bottom: 15px; margin-right: 10px;\">خیر، دهانه ورودی این تراش بسیار کوچک بوده و صرفاً قطر ۲ میلی‌متری مغزی اتودهای طراحی را می‌پذیرد.</p>\n    <p style=\"margin-bottom: 8px; font-weight: bold;\">۲. روش استفاده صحیح برای جلوگیری از شکستن نوک اتود چیست؟</p>\n    <p style=\"margin-right: 10px; margin-bottom: 0;\">کافی است مغزی اتود را حدود ۵ تا ۸ میلی‌متر از لوله اتود خارج کرده، آن را درون دهانه قرار داده و با فشار ملایم و چرخش زاویه‌دار بتراشید.</p>\n  </div>\n</div>"
+    "long_html": "<div style=\"direction: rtl; font-family: Vazirmatn, Tahoma, Arial, sans-serif; padding: 25px; border: 1px solid #e9d5ff; border-radius: 16px; background-color: #ffffff !important; max-width: 800px; margin: auto; line-height: 1.8; color: #0f172a !important; box-shadow: 0 4px 15px rgba(0,0,0,0.05);\">\n  <h2 style=\"color: #4c1d95 !important; border-bottom: 2px solid #8b5cf6; padding-bottom: 12px; font-size: 20px; font-weight: bold; margin-bottom: 18px; text-align: center;\">تراش اتود ۲ میلی‌متری ژوپیتر سی کلاس؛ دقت میکرومتری برای هنرمندان و طراحان!</h2>\n  \n  <p style=\"color: #0f172a !important; font-size: 15px; margin-bottom: 15px;\">تراشیدن مغزی ظریف و نرم اتودهای طراحی ۲ میلی‌متری همواره نیاز به زاویه بسیار دقیق دارد تا از شکستن مغزی جلوگیری شود. تراش اتود ژوپیتر سی کلاس به طور اختصاصی برای این کار طراحی شده تا هنرمندان بتوانند در سریع‌ترین زمان ممکن، نوک اتود خود را بسیار تیز و آماده سایه‌زنی کنند.</p>\n\n  <h3 style=\"color: #6d28d9 !important; font-size: 16px; font-weight: bold; margin-top: 22px; margin-bottom: 12px;\">چرا تراش ژوپیتر سی کلاس همراه همیشگی طراحان است؟</h3>\n  <ul style=\"margin-right: 20px; margin-bottom: 20px; color: #0f172a !important;\">\n    <li style=\"margin-bottom: 8px; color: #0f172a !important;\"><strong style=\"color: #000000 !important;\">تیغه فولادی سخت‌کاری‌شده:</strong> تیغه فوق‌العاده تیز این محصول از بهترین متریال آلیاژی ساخته شده تا بدون پرتی و گاز زدن نوک گرافیت، آن را صیقلی کند.</li>\n    <li style=\"margin-bottom: 8px; color: #0f172a !important;\"><strong style=\"color: #000000 !important;\">طراحی مخزن‌دار جیبی:</strong> مخزن کوچک تعبیه‌شده مانع از پخش شدن براده‌های ریز گرافیت روی نقاشی و دست طراح می‌شود و به راحتی باز و تخلیه می‌گردد.</li>\n    <li style=\"margin-bottom: 8px; color: #0f172a !important;\"><strong style=\"color: #000000 !important;\">رنگ‌های زیبای پاستلی:</strong> بدنه نیمه‌شفاف با رنگ‌های ملایم و مدرن پاستلی، جلوه‌ای حرفه‌ای و در عین حال فانتزی به ابزار شما می‌بخشد.</li>\n  </ul>\n\n  <div style=\"margin-top: 25px; padding: 18px; border-right: 4px solid #a855f7; background-color: #faf5ff !important; border-radius: 10px; border: 1px solid #f3e8ff;\">\n    <h4 style=\"color: #6d28d9 !important; font-weight: bold; font-size: 15px; margin-bottom: 10px;\">💡 راهنمای دوستانه برای یک خرید موفق (مدیریت انتظارات):</h4>\n    <p style=\"color: #0f172a !important; margin-bottom: 6px; font-weight: bold;\">۱. آیا می‌توان از این تراش برای مدادهای معمولی استفاده کرد؟</p>\n    <p style=\"color: #1e293b !important; margin-right: 10px; margin-bottom: 12px;\">خیر، دهانه ورودی این تراش بسیار کوچک بوده و صرفاً قطر ۲ میلی‌متری مغزی اتودهای طراحی را می‌پذیرد.</p>\n    <p style=\"color: #0f172a !important; margin-bottom: 6px; font-weight: bold;\">۲. روش استفاده صحیح برای جلوگیری از شکستن نوک اتود چیست؟</p>\n    <p style=\"color: #1e293b !important; margin-right: 10px; margin-bottom: 12px;\">کافی است مغزی اتود را حدود ۵ تا ۸ میلی‌متر از لوله اتود خارج کرده، آن را درون دهانه قرار داده و با فشار ملایم و چرخش زاویه‌دار بتراشید.</p>\n  </div>\n</div>"
 }

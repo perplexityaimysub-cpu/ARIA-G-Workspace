@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بهینه‌ساز پیشرفته تصاویر محصولات شاپفا</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0d16;
+            --bg-secondary: #111625;
+            --panel-bg: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-primary: #8b5cf6;
+            --accent-primary-hover: #a78bfa;
+            --accent-primary-glow: rgba(139, 92, 246, 0.35);
+            --accent-success: #10b981;
+            --accent-success-glow: rgba(16, 185, 129, 0.2);
+            --accent-warning: #fbbf24;
+            --accent-danger: #ef4444;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 40%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.08) 0px, transparent 40%),
+                radial-gradient(at 50% 50%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .num {
+            font-family: 'Plus Jakarta Sans', 'Vazirmatn', sans-serif;
+        }
+
+        header {
+            padding: 1.75rem 2rem;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-section h1 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-section p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-weight: 300;
+        }
+
+        .badge-recommended {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1400px;
+            width: 100%;
+            margin: 1.5rem auto;
+            padding: 0 2rem 3rem 2rem;
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Panel Glassmorphism */
+        .panel {
+            background: var(--panel-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 1.75rem;
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+            height: fit-content;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group > label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .help-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        /* Card Selector for Formats */
+        .format-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .format-card {
+            background: rgba(8, 11, 17, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .format-card:hover {
+            border-color: var(--accent-primary);
+            background: rgba(139, 92, 246, 0.03);
+        }
+
+        .format-card.active {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 12px var(--accent-primary-glow) inset;
+        }
+
+        .format-card .name {
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: #fff;
+            display: block;
+        }
+
+        .format-card .desc {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* Styled presets */
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .preset-btn {
+            background: rgba(8, 11, 17, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .preset-btn:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--text-main);
+        }
+
+        .preset-btn.active {
+            background: var(--accent-primary);
+            color: #fff;
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.25);
+        }
+
+        /* Range Slider */
+        .slider-wrapper {
+            margin-top: 10px;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slider-container input[type="range"] {
+            flex: 1;
+            accent-color: var(--accent-primary);
+            height: 6px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .slider-val {
+            font-size: 0.85rem;
+            min-width: 38px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        /* Manual Inputs Grid */
+        .manual-size-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .text-input {
+            width: 100%;
+            background: rgba(8, 11, 17, 0.8);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .text-input:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-primary-glow);
+        }
+
+        /* Naming selection radio list */
+        .naming-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .naming-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: rgba(8, 11, 17, 0.4);
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .naming-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .naming-item input[type="radio"] {
+            margin-top: 3px;
+            accent-color: var(--accent-primary);
+        }
+
+        .naming-item-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .naming-item-details .title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .naming-item-details .desc {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Live Preview SEO Box */
+        .seo-preview-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px dashed var(--accent-success);
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .seo-preview-box .title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent-success);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .seo-preview-box .preview-text {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.8rem;
+            direction: ltr;
+            text-align: left;
+            word-break: break-all;
+            color: #d1fae5;
+            font-weight: bold;
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            background: rgba(8, 11, 17, 0.6);
+            padding: 6px;
+            border-radius: 14px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 12px 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-primary);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* File dropzone */
+        .upload-zone {
+            border: 2px dashed rgba(139, 92, 246, 0.4);
+            background: rgba(139, 92, 246, 0.01);
+            border-radius: 18px;
+            padding: 4rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .upload-zone:hover, .upload-zone.dragover {
+            background: rgba(139, 92, 246, 0.04);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.1) inset;
+        }
+
+        .upload-zone svg {
+            width: 52px;
+            height: 52px;
+            color: var(--accent-primary);
+            transition: transform 0.3s;
+        }
+
+        .upload-zone:hover svg {
+            transform: translateY(-6px);
+        }
+
+        .upload-zone p {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .upload-zone span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* Folder Inputs and Pickers */
+        .folder-picker-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.25rem;
+        }
+
+        .folder-picker-group input {
+            flex: 1;
+            background: rgba(8, 11, 17, 0.8);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 11px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            outline: none;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .picker-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0 16px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .picker-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Primary Action Buttons */
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #7c3aed 100%);
+            border: none;
+            color: #fff;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 18px var(--accent-primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(139, 92, 246, 0.45);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--accent-danger) 0%, #dc2626 100%);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.35);
+        }
+
+        .btn-danger:hover {
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            background: rgba(8, 11, 17, 0.5);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem 1rem;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .stat-card .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .stat-card .value {
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+
+        .stat-card .value.highlight {
+            color: var(--accent-success);
+        }
+
+        /* File List */
+        .file-list-container {
+            margin-top: 1.5rem;
+            background: rgba(8, 11, 17, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .file-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        .file-table th {
+            background: rgba(8, 11, 17, 0.85);
+            color: var(--text-muted);
+            font-weight: 700;
+            padding: 11px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .file-table td {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 250px;
+        }
+
+        .file-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .status-badge {
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .status-badge.pending {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+        }
+
+        .status-badge.success {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+        }
+
+        /* Logging Console */
+        .log-panel {
+            margin-top: 1.5rem;
+            background: #04060a;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.2rem;
+            height: 220px;
+            overflow-y: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.72rem;
+            color: #34d399;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6) inset;
+        }
+
+        .log-entry {
+            line-height: 1.5;
+            direction: ltr;
+            text-align: left;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .progress-container.active {
+            display: block;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .progress-bar-bg {
+            background: rgba(255, 255, 255, 0.05);
+            height: 12px;
+            border-radius: 9999px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-success) 100%);
+            width: 0%;
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Description explanation card */
+        .format-explanation {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .format-explanation strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-section">
+            <h1>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+                بهینه‌ساز هوشمند تصاویر محصولات
+            </h1>
+            <p>آماده‌سازی خودکار عکس‌های حرفه‌ای محصول متناسب با استانداردهای سرعت شاپفا</p>
+        </div>
+        <div>
+            <span class="badge-recommended num">مخصوص شاپفا</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Settings Panel -->
+        <div class="panel">
+            <div class="section-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                تنظیمات فشرده‌سازی و خروجی
+            </div>
+
+            <!-- Format Cards -->
+            <div class="form-group">
+                <label>۱. فرمت تصویر خروجی</label>
+                <div class="format-cards">
+                    <div class="format-card active" onclick="setFormat('webp')">
+                        <span class="name">WebP</span>
+                        <span class="desc">فوق‌العاده سبک</span>
+                    </div>
+                    <div class="format-card" onclick="setFormat('jpeg')">
+                        <span class="name">JPEG</span>
+                        <span class="desc">کلاسیک/سازگار</span>
+                    </div>
+                    <div class="format-card" onclick="setFormat('png')">
+                        <span class="name">PNG</span>
+                        <span class="desc">بدون افت/شفاف</span>
+                    </div>
+                </div>
+                <div class="format-explanation" id="formatExplain">
+                    <strong>پیشنهاد وب (WebP):</strong> این فرمت استاندارد گوگل برای وب‌سایت‌های مدرن است. حجم تصاویر را تا ۸۵ درصد کاهش می‌دهد درحالی که هیچ افت کیفیت مشخصی در چشم خریدار ایجاد نمی‌کند. بهترین انتخاب برای بهینه‌سازی سرعت سایت.
+                </div>
+            </div>
+
+            <!-- Quality Presets -->
+            <div class="form-group" id="qualitySection">
+                <label>۲. کیفیت تصویر (میزان تراکم)</label>
+                <div class="preset-buttons">
+                    <button class="preset-btn" onclick="setQualityPreset(60, this)">۶۰٪ (کم‌حجم ترین)</button>
+                    <button class="preset-btn active" onclick="setQualityPreset(80, this)">۸۰٪ (پیشنهاد وب)</button>
+                    <button class="preset-btn" onclick="setQualityPreset(90, this)">۹۰٪ (عکاسی آتلیه‌ای)</button>
+                    <button class="preset-btn" onclick="setQualityPreset(100, this)">۱۰۰٪ (بدون فشرده‌سازی)</button>
+                </div>
+                <div class="slider-wrapper">
+                    <div class="slider-container">
+                        <input type="range" id="qualityRange" min="10" max="100" value="80" oninput="updateQualitySlider(this.value)">
+                        <span class="slider-val num" id="qualityValue">80%</span>
+                    </div>
+                </div>
+                <p class="help-text" id="qualityExplain">فرمت وب‌پيشنهاد (۸۰٪) بهترین تعادل است. تصاویر بدون نویز باقی مانده و لود صفحه فوق‌العاده سریع است.</p>
+            </div>
+
+            <!-- Size Options -->
+            <div class="form-group">
+                <label>۳. ابعاد و سایز تصویر</label>
+                <div class="preset-buttons">
+                    <button class="preset-btn active" onclick="setSizePreset('original', this)">ابعاد اصلی عکس</button>
+                    <button class="preset-btn" onclick="setSizePreset('shopfa', this)">۱۲۰۰ پیکسل (بهینه شاپفا)</button>
+                    <button class="preset-btn" onclick="setSizePreset('hd', this)">۱۹۲۰ پیکسل (Full HD)</button>
+                    <button class="preset-btn" onclick="setSizePreset('custom', this)">سفارشی</button>
+                </div>
+                <div class="manual-size-grid" id="manualSizeGrid" style="display:none;">
+                    <div>
+                        <span class="help-text">حداکثر عرض:</span>
+                        <input type="number" id="maxWidth" class="text-input num" placeholder="پیکسل" oninput="updateSeoPreview()">
+                    </div>
+                    <div>
+                        <span class="help-text">حداکثر ارتفاع:</span>
+                        <input type="number" id="maxHeight" class="text-input num" placeholder="پیکسل" oninput="updateSeoPreview()">
+                    </div>
+                </div>
+                <p class="help-text" id="sizeExplain">ابعاد اصلی عکس پیشنهاد می‌شود مگر اینکه عکس‌ها با رزولوشن بسیار بالای دوربین (مثلا ۴۰۰۰+ پیکسل) باشند که در این صورت پیشنهاد می‌شود سایز بهینه شاپفا (۱۲۰۰px) را انتخاب کنید.</p>
+            </div>
+
+            <!-- Naming SEO Options -->
+            <div class="form-group">
+                <label>۴. نام‌گذاری و سئوی تصاویر</label>
+                <div class="naming-list">
+                    <label class="naming-item">
+                        <input type="radio" name="namingStyle" value="original" checked onchange="updateNamingStyle('original')">
+                        <div class="naming-item-details">
+                            <span class="title">نام اصلی تصویر</span>
+                            <span class="desc">حفظ نام قبلی فایل فقط با تغییر پسوند فرمت</span>
+                        </div>
+                    </label>
+                    <label class="naming-item">
+                        <input type="radio" name="namingStyle" value="clean" onchange="updateNamingStyle('clean')">
+                        <div class="naming-item-details">
+                            <span class="title">پاکسازی هوشمند سئو</span>
+                            <span class="desc">حذف فواصل، جایگزینی با خط تیره و حروف کوچک (مناسب گوگل)</span>
+                        </div>
+                    </label>
+                    <label class="naming-item">
+                        <input type="radio" name="namingStyle" value="parent_folder" onchange="updateNamingStyle('parent_folder')">
+                        <div class="naming-item-details">
+                            <span class="title">نام‌گذاری بر اساس پوشه والد (مخصوص گروهی)</span>
+                            <span class="desc">نام‌گذاری منظم تصاویر بر اساس فولدر اصلی و شمارش عددی</span>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="seo-preview-box">
+                    <div class="title">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        پیش‌نمایش نام فایل خروجی سئو:
+                    </div>
+                    <div class="preview-text" id="seoPreviewFilename">product-image-name.webp</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processing Panel -->
+        <div class="panel" style="display: flex; flex-direction: column;">
+            <!-- Mode Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('filesTab', this)">بهینه‌سازی تکی و گروهی</button>
+                <button class="tab-btn" onclick="switchTab('folderTab', this)">بهینه‌سازی پوشه درختی (بازگشتی)</button>
+            </div>
+
+            <!-- Tab Content: Files -->
+            <div id="filesTab" class="tab-content active">
+                <div class="upload-zone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+                    </svg>
+                    <p>تصاویر محصولات را به اینجا بکشید یا کلیک کنید</p>
+                    <span>فایل‌های JPG, PNG, WebP و غیره</span>
+                    <input type="file" id="fileInput" multiple style="display:none" onchange="handleFileSelect(event)">
+                </div>
+
+                <div class="file-list-container" id="fileListContainer" style="display:none;">
+                    <table class="file-table">
+                        <thead>
+                            <tr>
+                                <th>نام فایل اصلی</th>
+                                <th class="num">حجم</th>
+                                <th>وضعیت</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fileTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 1.5rem; display: flex; gap:10px;">
+                    <button class="btn-primary" id="processFilesBtn" onclick="processUploadedFiles()" style="display:none;">
+                        شروع بهینه‌سازی و دریافت فایل‌ها
+                    </button>
+                    <button class="picker-btn" id="clearFilesBtn" onclick="clearFiles()" style="display:none; color: var(--accent-danger)">پاک کردن لیست</button>
+                </div>
+            </div>
+
+            <!-- Tab Content: Folder -->
+            <div id="folderTab" class="tab-content">
+                <div class="form-group">
+                    <label>پوشه تصاویر ورودی (پوشه حاوی عکس‌های سنگین)</label>
+                    <div class="folder-picker-group">
+                        <input type="text" id="inputFolderPath" readonly placeholder="مسیر فولدر مانند C:/Images/Originals">
+                        <button class="picker-btn" onclick="selectFolder('input')">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                            انتخاب پوشه
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>پوشه خروجی (ایجاد خودکار ساختار درختی و ذخیره تصاویر سبک)</label>
+                    <div class="folder-picker-group">
+                        <input type="text" id="outputFolderPath" readonly placeholder="مسیر فولدر مانند C:/Images/Optimized">
+                        <button class="picker-btn" onclick="selectFolder('output')">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                            انتخاب پوشه
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="startFolderBtn" onclick="startFolderProcessing()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    شروع بهینه‌سازی درختی پوشه‌ها
+                </button>
+                
+                <button class="btn-primary btn-danger" id="stopFolderBtn" onclick="stopFolderProcessing()" style="display:none;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/></svg>
+                    توقف پردازش پوشه
+                </button>
+            </div>
+
+            <!-- Live Status & Progress -->
+            <div class="progress-container" id="globalProgressContainer">
+                <div class="progress-header">
+                    <span id="progressText">در حال تحلیل تصاویر...</span>
+                    <span class="num" id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+            </div>
+
+            <!-- Real-time Stat Cards -->
+            <div class="stats-grid" id="statsGrid" style="display:none;">
+                <div class="stat-card">
+                    <span class="label">تعداد فایل‌های بهینه‌شده</span>
+                    <span class="value num" id="statProcessedCount">0/0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="label">میزان کاهش فضا (سایت سریع‌تر)</span>
+                    <span class="value highlight num" id="statSavedPercent">0%</span>
+                </div>
+                <div class="stat-card">
+                    <span class="label">حجم آزاد شده از سرور</span>
+                    <span class="value highlight num" id="statSavedBytes">0 MB</span>
+                </div>
+            </div>
+
+            <!-- Terminal log -->
+            <div class="log-panel" id="logPanel" style="display:none;"></div>
+        </div>
+    </main>
+
+    <script>
+        // State variables
+        let selectedFiles = [];
+        let currentFormat = 'webp';
+        let currentQuality = 80;
+        let currentNaming = 'original';
+        let isFolderRunning = false;
+        let pollingInterval = null;
+
+        // Init page
+        updateSeoPreview();
+
+        // Tabs
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            btn.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+            
+            if (!isFolderRunning) {
+                hideStatsPanel();
+            }
+        }
+
+        function hideStatsPanel() {
+            document.getElementById('globalProgressContainer').classList.remove('active');
+            document.getElementById('statsGrid').style.display = 'none';
+            document.getElementById('logPanel').style.display = 'none';
+        }
+
+        // 1. Set Format
+        function setFormat(format) {
+            currentFormat = format;
+            document.querySelectorAll('.format-card').forEach(card => {
+                card.classList.remove('active');
+                if (card.innerText.toLowerCase().includes(format)) {
+                    card.classList.add('active');
+                }
+            });
+
+            // Update explanations and toggle quality slider
+            const explain = document.getElementById('formatExplain');
+            const qSection = document.getElementById('qualitySection');
+
+            if (format === 'webp') {
+                explain.innerHTML = `<strong>پیشنهاد وب (WebP):</strong> این فرمت استاندارد گوگل برای وب‌سایت‌های مدرن است. حجم تصاویر را تا ۸۵ درصد کاهش می‌دهد درحالی که هیچ افت کیفیت مشخصی در چشم خریدار ایجاد نمی‌کند. بهترین انتخاب برای بهینه‌سازی سرعت سایت.`;
+                qSection.style.display = 'block';
+            } else if (format === 'jpeg') {
+                explain.innerHTML = `<strong>فرمت JPEG (کلاسیک):</strong> برای عکس‌های رنگارنگ آتلیه‌ای با جزئیات ریز بسیار عالی است. سازگاری کامل ۱۰۰٪ با تمامی مرورگرها و سیستم‌های قدیمی دارد اما نسبت به WebP حجم بیشتری اشغال می‌کند.`;
+                qSection.style.display = 'block';
+            } else {
+                explain.innerHTML = `<strong>فرمت PNG (بدون اتلاف):</strong> برای لوگوها، عکس‌های فاقد پس‌زمینه (شفاف) یا طرح‌های گرافیکی. از فشرده‌سازی با کیفیت استفاده نمی‌کند به همین دلیل حجم بسیار بالاتری خواهد داشت. برای تصاویر محصول آتلیه‌ای توصیه نمی‌شود.`;
+                qSection.style.display = 'none';
+            }
+
+            updateSeoPreview();
+        }
+
+        // 2. Set Quality
+        function setQualityPreset(quality, btn) {
+            if (btn) {
+                const parent = btn.parentElement;
+                parent.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+
+            currentQuality = quality;
+            document.getElementById('qualityRange').value = quality;
+            document.getElementById('qualityValue').innerText = `${quality}%`;
+
+            const explain = document.getElementById('qualityExplain');
+            if (quality === 60) {
+                explain.innerText = 'تراکم بالا (۶۰٪): فشرده‌ترین حالت با کمترین حجم ممکن. برای وب‌سایت‌های بزرگ با صدها محصول مناسب است. افت نامحسوس و ناچیز کیفیت در زوم.';
+            } else if (quality === 80) {
+                explain.innerText = 'کیفیت وب (۸۰٪): مقدار استاندارد طلایی و پیشنهادی شاپفا. تفاوتی با نسخه اصلی در ظاهر ندارد اما حجم فایل تا ۸۵ درصد کاهش می‌یابد.';
+            } else if (quality === 90) {
+                explain.innerText = 'کیفیت آتلیه (۹۰٪): مناسب برای نمایش محصولات لوکس و گران‌بها (جواهرات، ساعت و غیره) که خریداران تمایل به بزرگ‌نمایی بسیار زیادی دارند.';
+            } else {
+                explain.innerText = 'بدون فشرده‌سازی (۱۰۰٪): بدون افت کیفیت. عملا فشرده‌سازی صورت نمی‌گیرد و مناسب قرارگیری مستقیم روی وب‌سایت نیست.';
+            }
+        }
+
+        function updateQualitySlider(val) {
+            currentQuality = parseInt(val);
+            document.getElementById('qualityValue').innerText = `${val}%`;
+            
+            // Remove active class from preset buttons since it's custom
+            document.querySelectorAll('#qualitySection .preset-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('qualityExplain').innerText = `کیفیت سفارشی روی ${val} درصد تنظیم شده است.`;
+        }
+
+        // 3. Set Size
+        function setSizePreset(preset, btn) {
+            if (btn) {
+                const parent = btn.parentElement;
+                parent.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+
+            const manualGrid = document.getElementById('manualSizeGrid');
+            const explain = document.getElementById('sizeExplain');
+            const maxW = document.getElementById('maxWidth');
+            const maxH = document.getElementById('maxHeight');
+
+            if (preset === 'original') {
+                manualGrid.style.display = 'none';
+                maxW.value = '';
+                maxH.value = '';
+                explain.innerText = 'سایز تغییر نمی‌کند. مناسب عکس‌هایی که از قبل برای وب کراپ و آماده شده‌اند.';
+            } else if (preset === 'shopfa') {
+                manualGrid.style.display = 'none';
+                maxW.value = '1200';
+                maxH.value = '1200';
+                explain.innerText = 'ابعاد عکس حداکثر به ۱۲۰۰ پیکسل تغییر می‌کند. این سایز استاندارد گالری‌های محصول شاپفا و دیجی‌کالاست و باعث لود سریع گالری می‌شود.';
+            } else if (preset === 'hd') {
+                manualGrid.style.display = 'none';
+                maxW.value = '1920';
+                maxH.value = '1080';
+                explain.innerText = 'سایز عکس به حداکثر ۱۹۲۰ پیکسل (Full HD) تعدیل می‌شود. مناسب برای بنرها و عکس‌های عریض.';
+            } else {
+                manualGrid.style.display = 'grid';
+                explain.innerText = 'ابعاد حداکثری مورد نظر خود را به صورت دستی وارد کنید (طول و عرض متناسب با نسبت تصویر حفظ خواهند شد).';
+            }
+            updateSeoPreview();
+        }
+
+        // 4. Set Naming Style
+        function updateNamingStyle(style) {
+            currentNaming = style;
+            updateSeoPreview();
+        }
+
+        // Live SEO Preview Naming
+        function updateSeoPreview() {
+            const previewEl = document.getElementById('seoPreviewFilename');
+            let name = "عکس-نمونه-محصول-Studio Image 123";
+            let ext = currentFormat;
+
+            if (currentNaming === 'original') {
+                previewEl.innerText = `عکس-نمونه-محصول-Studio Image 123.${ext}`;
+            } else if (currentNaming === 'clean') {
+                // Mock clean SEO
+                previewEl.innerText = `l-aks-nmwnh-mhswl-studio-image-123.${ext}`;
+            } else if (currentNaming === 'parent_folder') {
+                previewEl.innerText = `[نام-پوشه-مادر]-1.${ext}`;
+            }
+        }
+
+        // File Select
+        function handleFileSelect(e) {
+            const files = Array.from(e.target.files);
+            addFilesToList(files);
+        }
+
+        // Drag & Drop
+        const dropzone = document.getElementById('dropzone');
+        ['dragenter', 'dragover'].forEach(name => {
+            dropzone.addEventListener(name, (e) => {
+                e.preventDefault();
+                dropzone.classList.add('dragover');
+            });
+        });
+        ['dragleave', 'drop'].forEach(name => {
+            dropzone.addEventListener(name, (e) => {
+                e.preventDefault();
+                dropzone.classList.remove('dragover');
+            });
+        });
+        dropzone.addEventListener('drop', (e) => {
+            const files = Array.from(e.dataTransfer.files);
+            addFilesToList(files);
+        });
+
+        function addFilesToList(files) {
+            const allowed = ['.jpg', '.jpeg', '.png', '.webp', '.bmp', '.tiff', '.tif'];
+            files.forEach(file => {
+                const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+                if (allowed.includes(ext)) {
+                    if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+                        selectedFiles.push(file);
+                    }
+                }
+            });
+            renderList();
+        }
+
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function renderList() {
+            const tbody = document.getElementById('fileTableBody');
+            const list = document.getElementById('fileListContainer');
+            const processBtn = document.getElementById('processFilesBtn');
+            const clearBtn = document.getElementById('clearFilesBtn');
+
+            tbody.innerHTML = '';
+            if (selectedFiles.length > 0) {
+                list.style.display = 'block';
+                processBtn.style.display = 'block';
+                clearBtn.style.display = 'block';
+                
+                selectedFiles.forEach(file => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td title="${file.name}">${file.name}</td>
+                        <td class="num">${formatBytes(file.size)}</td>
+                        <td><span class="status-badge pending">در انتظار</span></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } else {
+                list.style.display = 'none';
+                processBtn.style.display = 'none';
+                clearBtn.style.display = 'none';
+            }
+        }
+
+        function clearFiles() {
+            selectedFiles = [];
+            document.getElementById('fileInput').value = '';
+            renderList();
+            hideStatsPanel();
+        }
+
+        // Submit uploaded files
+        async function processUploadedFiles() {
+            if (selectedFiles.length === 0) return;
+
+            const maxW = document.getElementById('maxWidth').value;
+            const maxH = document.getElementById('maxHeight').value;
+
+            // Show progress
+            const progContainer = document.getElementById('globalProgressContainer');
+            const progFill = document.getElementById('progressBarFill');
+            const progText = document.getElementById('progressText');
+            const progPercent = document.getElementById('progressPercentage');
+
+            progContainer.classList.add('active');
+            progFill.style.width = '20%';
+            progFill.style.backgroundColor = 'var(--accent-primary)';
+            progText.innerText = 'در حال آپلود و بهینه‌سازی تصاویر...';
+            progPercent.innerText = '20%';
+
+            const form = new FormData();
+            selectedFiles.forEach(f => form.append('files', f));
+            form.append('format', currentFormat);
+            form.append('quality', currentQuality);
+            form.append('naming_style', currentNaming);
+            if (maxW) form.append('max_width', maxW);
+            if (maxH) form.append('max_height', maxH);
+
+            try {
+                progFill.style.width = '50%';
+                progPercent.innerText = '50%';
+                progText.innerText = 'در حال فشرده‌سازی با موتور پردازش Pillow...';
+
+                const response = await fetch('/api/process-files', {
+                    method: 'POST',
+                    body: form
+                });
+
+                if (!response.ok) {
+                    const err = await response.json();
+                    throw new Error(err.error || 'خطا در ارتباط با سرور');
+                }
+
+                progFill.style.width = '80%';
+                progPercent.innerText = '80%';
+                progText.innerText = 'آماده‌سازی فایل دانلود...';
+
+                const disp = response.headers.get('Content-Disposition');
+                let filename = `optimized_images_${Date.now()}.${currentFormat === 'webp' ? 'zip' : 'zip'}`;
+                if (disp) {
+                    const match = disp.match(/filename="?([^"]+)"?/);
+                    if (match && match[1]) filename = match[1];
+                }
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url);
+
+                progFill.style.width = '100%';
+                progPercent.innerText = '100%';
+                progText.innerText = 'عملیات با موفقیت پایان یافت و فایل‌ها دانلود شدند!';
+                
+                // Update table badges
+                document.querySelectorAll('#fileTableBody tr').forEach(tr => {
+                    const badge = tr.querySelector('.status-badge');
+                    badge.className = 'status-badge success';
+                    badge.innerText = 'بهینه‌شد';
+                });
+
+            } catch (err) {
+                alert('خطا: ' + err.message);
+                progText.innerText = 'خطا در بهینه‌سازی فایل‌ها';
+                progFill.style.backgroundColor = 'var(--accent-danger)';
+            }
+        }
+
+        // Native Picker Folder trigger
+        async function selectFolder(type) {
+            const input = document.getElementById(type === 'input' ? 'inputFolderPath' : 'outputFolderPath');
+            const title = type === 'input' ? 'انتخاب پوشه عکس‌های اصلی محصول' : 'انتخاب پوشه مقصد برای ذخیره تصاویر سبک';
+            
+            try {
+                const response = await fetch('/api/select-folder', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ title: title })
+                });
+                const data = await response.json();
+                if (data.path) {
+                    input.value = data.path;
+                }
+            } catch (err) {
+                alert('خطا در فراخوانی کاوشگر سیستم: ' + err);
+            }
+        }
+
+        // Folder logic
+        async function startFolderProcessing() {
+            const inputFolder = document.getElementById('inputFolderPath').value;
+            const outputFolder = document.getElementById('outputFolderPath').value;
+
+            if (!inputFolder || !outputFolder) {
+                alert('لطفاً پوشه‌های مبدا و مقصد را مشخص کنید.');
+                return;
+            }
+
+            const maxW = document.getElementById('maxWidth').value;
+            const maxH = document.getElementById('maxHeight').value;
+
+            try {
+                const response = await fetch('/api/start-folder', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        input_folder: inputFolder,
+                        output_folder: outputFolder,
+                        format: currentFormat,
+                        quality: currentQuality,
+                        naming_style: currentNaming,
+                        max_width: maxW,
+                        max_height: maxH
+                    })
+                });
+
+                if (!response.ok) {
+                    const err = await response.json();
+                    throw new Error(err.error);
+                }
+
+                document.getElementById('startFolderBtn').style.display = 'none';
+                document.getElementById('stopFolderBtn').style.display = 'block';
+                document.getElementById('globalProgressContainer').classList.add('active');
+                document.getElementById('statsGrid').style.display = 'grid';
+                document.getElementById('logPanel').style.display = 'flex';
+
+                isFolderRunning = true;
+                pollingInterval = setInterval(pollFolderStatus, 1000);
+
+            } catch (err) {
+                alert('خطا: ' + err.message);
+            }
+        }
+
+        async function stopFolderProcessing() {
+            try {
+                await fetch('/api/stop-folder', {method: 'POST'});
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        async function pollFolderStatus() {
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+
+                // Progress Bar
+                const total = data.total_files || 0;
+                const count = data.processed_count || 0;
+                const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+
+                const fill = document.getElementById('progressBarFill');
+                fill.style.width = `${pct}%`;
+                fill.style.backgroundColor = 'var(--accent-primary)';
+                document.getElementById('progressPercentage').innerText = `${pct}%`;
+                document.getElementById('progressText').innerText = data.current_file 
+                    ? `در حال بهینه‌سازی: ${data.current_file}` 
+                    : 'در حال شروع پردازش...';
+
+                // Stats
+                document.getElementById('statProcessedCount').innerText = `${count} از ${total}`;
+                
+                const orig = data.total_original_size || 0;
+                const opt = data.total_optimized_size || 0;
+                const diff = orig - opt;
+                const savedPct = orig > 0 ? Math.round((diff / orig) * 100) : 0;
+
+                document.getElementById('statSavedPercent').innerText = `${savedPct}%`;
+                document.getElementById('statSavedBytes').innerText = formatBytes(diff);
+
+                // Logs
+                const logPanel = document.getElementById('logPanel');
+                logPanel.innerHTML = '';
+                data.logs.forEach(log => {
+                    const div = document.createElement('div');
+                    div.className = 'log-entry';
+                    div.innerText = log;
+                    logPanel.appendChild(div);
+                });
+                logPanel.scrollTop = logPanel.scrollHeight;
+
+                // Finished?
+                if (!data.running) {
+                    clearInterval(pollingInterval);
+                    document.getElementById('startFolderBtn').style.display = 'block';
+                    document.getElementById('stopFolderBtn').style.display = 'none';
+                    isFolderRunning = false;
+
+                    if (data.completed) {
+                        document.getElementById('progressText').innerText = 'بهینه‌سازی کل پوشه با موفقیت کامل شد!';
+                        fill.style.backgroundColor = 'var(--accent-success)';
+                    } else if (data.error) {
+                        document.getElementById('progressText').innerText = `خطا: ${data.error}`;
+                        fill.style.backgroundColor = 'var(--accent-danger)';
+                    } else {
+                        document.getElementById('progressText').innerText = 'عملیات توسط کاربر متوقف گردید.';
+                        fill.style.backgroundColor = 'var(--accent-warning)';
+                    }
+                }
+
+            } catch (err) {
+                console.error(err);
+            }
+        }
+    </script>
+</body>
+</html>
